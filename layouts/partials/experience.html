@@ -1,0 +1,25 @@
+<div class="section">
+    <h1 class="section-title">Experience</h1>
+    {{ $companies := slice }}
+    {{ range .Site.Data.experience }}
+    {{ $companies = $companies | append .company }}
+{{ end }}
+
+{{ $companies = uniq $companies }}
+
+{{ range $companies }}
+    {{ $company := . }}
+
+    <div class="item group">
+        <h3 class="item-title">{{ $company }}</h3>
+    {{ range where $.Site.Data.experience "company" $company }}
+    <div class="item">
+        <div class="flex-row">
+            <span class="job-title">{{ .name }}</span>
+            <span class="date">{{ .date }}</span></div>
+            <p>{{ .details | markdownify }}</p>
+        </div>
+    {{ end }}
+    </div>
+{{ end }}
+</div>

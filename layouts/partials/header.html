@@ -1,0 +1,10 @@
+<div class="titleHeader">
+    {{ range .Site.Data.features.about }}
+    <h1 class="name">{{ .name }}</h1>
+    {{ if $.Site.Params.display.tagline }}<h3 class="tagline">{{ .tagline }}</h3>{{end}}
+    {{ if $.Site.Params.display.contact }}<span class="contact">{{ .phone }} | {{ .email }}</span>{{ end }}
+    {{ end }}
+</div>
+{{ if .Site.Params.display.avatar }}
+<div><img class="avatar right" src="{{.Site.Params.avatar}}"></div>
+{{ end }}

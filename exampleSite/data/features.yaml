@@ -1,0 +1,46 @@
+skills:
+  - "Python - R - SQL"
+  - "InfluxDB/TICK Stack"
+  - "Grafana - PowerBI"
+  - "Excel - Minitab - SPSS"
+  - "GAMS - PuLP - OR-Tools"
+  - "C# - Git - Docker - NGINX"
+
+skillsGrouped:
+  - groupName: "Databases & Visualization"
+    skills: ["Grafana - Kibana - PowerBI", "InfluxDB - TICK Stack"]
+ 
+  - groupName: "Data Analysis & Analytics"
+    skills: ["Python - R - SQL", "Excel - Minitab - SPSS", "GAMS - PuLP - OR Tools"]
+
+  - groupName: "Programming & Systems"
+    skills: ["C# - Git - Docker - NGINX", "Linux - CentOS RHEL"]
+
+interests:
+  - "Data Science"
+  - "AI Applications"
+  - "Optimization Problems"
+
+languages:
+  - name: "Turkish"
+    level: "Native"
+
+  - name: "English"
+    level: "Professional"
+    certificates: ["YDS: 86.25 - 2018", "TOEFL: 109 - 2021"]
+
+
+awards:
+  - name: "Tübitak - Graduation Project"
+    date: "2017"
+    details: "A Decision Support System for 3D Cutting Problem"
+
+
+about:
+  - name: "MERT BAKIR"
+    tagline: "Industrial Engineer"
+    phone: "5070*4****"
+    email: "yourmail@yourdomain"
+    details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare sollicitudin fringilla.
+              Aenean nec volutpat arcu. Maecenas quis tempus risus. Curabitur condimentum ligula in erat pharetra porta. 
+              Nam suscipit nisi a bibendum lacinia."

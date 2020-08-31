@@ -1,0 +1,32 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "Résumé | MERT BAKIR"
+disableKinds = ["taxonomy", "term"]
+theme = "resume-A4"
+
+[params]
+dateUpdated = "01 September, 2020"
+useFontAwesome = true
+avatar = "avatar.jpg"
+
+[params.display]
+experience = true
+education = true
+languages = true
+awards = true
+skills = true
+skills_grouped = false
+interests = true
+contact = true
+tagline = true
+objective = true
+projects = false
+papers = false
+avatar = true
+footer = true
+
+[params.contacts]
+linkedin = "https://www.linkedin.com/in/mertbakir/"
+gitlab = "https://gitlab.com/mertbakir/resume-A4"
+website = "https://mertbakir.gitlab.io/about/"
+download = ""
