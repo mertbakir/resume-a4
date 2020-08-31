@@ -1,7 +1,3 @@
-# Hugo default output directory
-/public
-/resources
-
 # Test files
 node_modules
 npm-debug.log
