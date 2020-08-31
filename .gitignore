@@ -1,0 +1,43 @@
+# Hugo default output directory
+/public
+/resources
+
+# Test files
+node_modules
+npm-debug.log
+
+# Temporary files
+tmp
+
+# Visual Studio
+.vs
+
+# Adobe files
+*.ai
+*.psd
+*.indd
+*.indb
+
+# Compressed files
+*.zip
+*.gz
+*.tar
+*.7z
+
+# Folder view configuration files
+.DS_Store
+Desktop.ini
+
+# Thumbnail cache files
+._*
+Thumbs.db
+
+# Sass
+.sass-cache
+
+# Files that might appear on external disks
+.Spotlight-V100
+.Trashes
+
+# Local
+/_local

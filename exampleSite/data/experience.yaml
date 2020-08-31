@@ -1,0 +1,20 @@
+- name: "Monitoring Team Leader"
+  company: "Turkish Technic"
+  details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare sollicitudin fringilla.
+              Aenean nec volutpat arcu. Maecenas quis tempus risus. Curabitur condimentum ligula in erat pharetra porta. 
+              Nam suscipit nisi a bibendum lacinia. Donec aliquet, nibh dignissim placerat efficit"
+  date: "2019 - Present"
+
+- name: "System Engineer"
+  company: "Turkish Technic"
+  date: "10.2018 - Present"
+  details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare sollicitudin fringilla.
+              Aenean nec volutpat arcu. Maecenas quis tempus risus. Curabitur condimentum ligula in erat pharetra porta. 
+              Nam suscipit nisi a bibendum lacinia. Donec aliquet, nibh dignissim placerat efficit"
+
+- name: "Graduate Project - Intern"
+  company: "Turkish Aerospace Industries"
+  date: "11.2016 - 07.2017"
+  details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare sollicitudin fringilla.
+              Aenean nec volutpat arcu. Maecenas quis tempus risus. Curabitur condimentum ligula in erat pharetra porta. 
+              Nam suscipit nisi a bibendum lacinia. Donec aliquet, nibh dignissim placerat efficit"

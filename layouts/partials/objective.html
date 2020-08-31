@@ -1,0 +1,8 @@
+<div class="section">
+    <h1 class="section-title">Objective</h1>
+    <p>
+        {{ range .Site.Data.features.about }}
+            {{ .details }}
+        {{ end }}
+    </p>
+</div>
