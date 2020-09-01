@@ -20,8 +20,8 @@
             <header class="flex-row">{{ partial "header" . }}</header>
 
             <div class="leftSide">
-            {{ if .Site.Params.display.objective }}
-                {{ partial "objective" . }}
+            {{ if .Site.Params.display.aboutMe }}
+                {{ partial "about-me" . }}
             {{ end }}
             
             {{ if .Site.Params.display.experience }}
