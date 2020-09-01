@@ -1,11 +1,10 @@
 baseURL = "/"
 languageCode = "en-us"
-title = "Résumé | MERT BAKIR"
+title = "Resume | MERT BAKIR"
 disableKinds = ["taxonomy", "term", "page", "section", "RSS", "sitemap", "robotsTXT", "404"]
 theme = "resume-A4"
 
 [params]
-dateUpdated = "01 September, 2020"
 useFontAwesome = true
 avatar = "avatar.jpg"
 
@@ -17,16 +16,30 @@ awards = true
 skills = true
 skills_grouped = false
 interests = true
-contact = true
+contact = false
 tagline = true
-objective = true
+objective = false
 projects = false
 papers = false
 avatar = true
-footer = true
 
-[params.contacts]
-linkedin = "https://www.linkedin.com/in/mertbakir/"
-gitlab = "https://gitlab.com/mertbakir/resume-A4"
-website = "https://mertbakir.gitlab.io/about/"
-download = "resume.pdf"
+[params.display.footer]
+footer = true
+links = true
+credits = true
+
+[params.footer]
+footnote = "You can print this resume in A4 size or save as pdf. | Last update on 01.09.2020."
+
+[params.footer.links]
+[[params.footer.links.link]]
+prefix = "Contact me on"
+name = "Linkedin"
+url = "https://www.linkedin.com/in/mertbakir/"
+icon = "fab fa-linkedin"
+
+[[params.footer.links.link]]
+prefix = "Check out my"
+name = "Website"
+url = "https://www.mertbakir.gitlab.io/about"
+icon = "fas fa-globe"

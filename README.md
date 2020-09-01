@@ -3,8 +3,11 @@
 1. ~~Write proper README.~~
 2. Projects Section
 3. Papers Section
-4. Remove side grid from front config file. > Add new scss and an if statement in head. ez.
-5. Make footer configurable from config file.
+4. Remove side grid from front config file. > Add new scss and an if statement in head. Should be ez, but I'm not sure if ```/resources``` dependency of theme would be a problem.
+5. ~~Make footer configurable from config file.~~
+6. Add multilanguage option.
+7. I'll write a blog post soon.
+8. Add linkedin in resume header (?)
 
 > I'm open to suggestions or contributions.
 
@@ -39,7 +42,6 @@ $ git clone https://gitlab.com/mertbakir/resume-a4.git
 
 * Enable/Disable Sections in ```config.toml```
 * Set avatar link in ```config.toml```, keep your image under ```static``` folder if you want.
-* Contacts, useFontAwesome, dateUpdated pparameters in the config file are used in footer only, not in the resume itself.
 * Save your resume as pdf, put it under ```static``` folder in root directory. Name the pdf as ```resume.pdf``` or set it's name to ```download``` param in ```config.yml```.
 
 # License
