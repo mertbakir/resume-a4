@@ -1,6 +1,20 @@
-Last updated on {{ .Site.Params.dateUpdated }}<br>
-This page is print friendly, you can print via your browser or <a href="{{ .Site.Params.contacts.download }}"><span class="link-text">Download <span><i class="fas fa-save"></i></a>
-<br>
-Contact me on <a href="{{ .Site.Params.contacts.linkedin }}"><span class="link-text">Linkedin </span><i class="fab fa-linkedin"></i></a>
-| See, this project at <a href="{{ .Site.Params.contacts.gitlab }}"><span class="link-text">GitLab </span><i class="fab fa-gitlab"></i></a>
-| Checkout my <a href="{{ .Site.Params.contacts.website }}"><span class="link-text">Website </span><i class="fas fa-globe"></i></a>
+{{ if .Site.Params.display.footer.credits }}
+<span class="footer-item" id="credits">
+Resume-A4 project is open-sourced by <a href="https://gitlab.com/mertbakir/resume-A4"><span class="link-text">Mert Bakır </span><i class="fab fa-gitlab"></i></a>
+</span>
+{{ end }}
+
+{{ if .Site.Params.display.footer.links }}
+<span class="footer-item">
+    {{ range .Site.Params.footer.links.link }}
+<span id="link">
+    {{ .prefix }} <a href="{{.url}}"><span class="link-text">{{.name}} </span>
+    {{ if $.Site.Params.useFontAwesome }}<i class="{{.icon}}"></i>{{ end }}
+        </a></span>
+    {{ end }}
+</span>
+{{ end }}
+
+<span class="footer-item">
+    {{ .Site.Params.footer.footnote }}
+</span>
