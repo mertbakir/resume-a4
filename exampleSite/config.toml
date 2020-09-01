@@ -1,7 +1,7 @@
-baseURL = "https://example.com"
+baseURL = "/"
 languageCode = "en-us"
 title = "Résumé | MERT BAKIR"
-disableKinds = ["taxonomy", "term"]
+disableKinds = ["taxonomy", "term", "page", "section", "RSS", "sitemap", "robotsTXT", "404"]
 theme = "resume-A4"
 
 [params]
@@ -29,4 +29,4 @@ footer = true
 linkedin = "https://www.linkedin.com/in/mertbakir/"
 gitlab = "https://gitlab.com/mertbakir/resume-A4"
 website = "https://mertbakir.gitlab.io/about/"
-download = ""
+download = "resume.pdf"
