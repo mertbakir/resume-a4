@@ -35,11 +35,11 @@ footnote = "You can print this resume in A4 size or save as pdf. | Last update o
 [[params.footer.links.link]]
 prefix = "Contact me on"
 name = "Linkedin"
-url = "https://www.linkedin.com/in/mertbakir/"
+url = "https://linkedin.com/in/mertbakir/"
 icon = "fab fa-linkedin"
 
 [[params.footer.links.link]]
 prefix = "Check out my"
 name = "Website"
-url = "https://www.mertbakir.gitlab.io/about"
+url = "https://mertbakir.gitlab.io/about/"
 icon = "fas fa-globe"

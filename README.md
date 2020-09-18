@@ -47,3 +47,11 @@ $ git clone https://gitlab.com/mertbakir/resume-a4.git
 # License
 
 This project is open-sourced and licensed under the terms of the MIT license. I would be happy though, if you give attribution. <3
+
+# My Work Flow
+
+1. Make changes.
+2. Delete resources folder in main project.
+2. Build your hugo site using this themes ```hugo server``` (set baseurl = "/" before the build.)
+3. Copy "resources" folder from main project to theme folder ```themes\resume-A4\resources```
+4. git commit & push.
