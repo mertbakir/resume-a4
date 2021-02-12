@@ -17,6 +17,7 @@ skills = true
 skills_grouped = false
 interests = true
 contact = false
+linkedin = false
 tagline = true
 aboutMe = false
 projects = false

@@ -1,6 +1,6 @@
 <div class="section">
-    <h1 class="section-title">{{ .Site.Params.title_as.certificates }}</h1>
-        {{ range .Site.Data.features.certificates }}
+    <h1 class="section-title">{{ .Site.Params.title_as.projects }}</h1>
+        {{ range .Site.Data.projects }}
         <div class="item">
             <h3 class="item-title">{{ .name }}
                 {{ if .link }}<a href="{{ .link }}">
@@ -8,7 +8,8 @@
                     {{else}}&#128279;{{ end }}</a>
                 {{ end }}
             </h3>
-            {{ .issued_by | markdownify }} - {{ .date }}
+            {{ .company | markdownify }} - {{ .date }}
+            <p>{{ .details }}</p>
         </div>
         {{ end }}
 </div>

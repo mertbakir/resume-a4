@@ -1,13 +1,13 @@
 # To Do:
 
 1. ~~Write proper README.~~
-2. Projects Section
+2. ~~Projects Section~~
 3. Papers Section
 4. Remove side grid from front config file. > Add new scss and an if statement in head. Should be ez, but I'm not sure if ```/resources``` dependency of theme would be a problem.
 5. ~~Make footer configurable from config file.~~
-6. Add multilanguage option.
+6. ~~Add multilanguage option.~~ Titles are configurable now.
 7. ~~I'll write a blog post soon.~~ [Here is the blog post](https://mertbakir.gitlab.io/projects/resume-a4/)
-8. Add linkedin in resume header (?)
+8. ~~Add linkedin in resume header~~
 
 > I'm open to suggestions or contributions.
 

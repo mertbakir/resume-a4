@@ -1,0 +1,11 @@
+- name: "Simulated Annealing for Traveling Salesman Problem"
+  company: "Some University"
+  link: ""
+  date: "2016"
+  details: "Lorem ipsum dolor sit amet"
+
+- name: "Resume - A4"
+  company: "mertbakir.gitlab.io/resume"
+  link: "https://gitlab.com/mertbakir/resume-a4"
+  date: "2020"
+  details: "Bring CI/CD to your resume using YAML and Git."

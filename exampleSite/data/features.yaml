@@ -3,7 +3,7 @@ skills:
   - "InfluxDB/TICK Stack"
   - "Grafana - PowerBI"
   - "Excel - Minitab - SPSS"
-  - "GAMS - PuLP - OR-Tools"
+  - "GAMS - OR-Tools - IBM CPLEX"
   - "C# - Git - Docker - NGINX"
 
 skillsGrouped:
@@ -38,16 +38,19 @@ certificates:
   - name: "Supervised Learning: Regression"
     date: "2020"
     issued_by: "Coursera"
-    link: "https://www.coursera.org/account/accomplishments/certificate/7T7YUWB8YNSH"
+    link: "https://xkcd.com/605/"
 
   - name: "Supervised Learning: Classification"
     date: "2020"
     issued_by: "Coursera"
+    link: "https://xkcd.com/388/"
+
 
 about:
   - name: "MERT BAKIR"
-    tagline: "Industrial Engineer"
+    tagline: "Data Scientist"
     phone: "5070*4****"
+    linkedin: "/in/mertbakir"
     email: "yourmail@yourdomain"
     details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare sollicitudin fringilla.
               Aenean nec volutpat arcu. Maecenas quis tempus risus. Curabitur condimentum ligula in erat pharetra porta. 

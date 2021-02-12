@@ -36,6 +36,10 @@
                 {{ partial "papers" . }}
             {{ end }}
 
+            {{ if .Site.Params.display.certificates }}
+            {{ partial "certificates" . }}
+            {{ end }}
+
             </div>
 
             <div class="rightSide">
@@ -45,10 +49,6 @@
 
             {{ if .Site.Params.display.languages }}
                 {{ partial "languages" . }}
-            {{ end }}
-
-            {{ if .Site.Params.display.certificates }}
-                {{ partial "certificates" . }}
             {{ end }}
 
             {{ if .Site.Params.display.awards }}
