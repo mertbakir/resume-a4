@@ -47,6 +47,10 @@
                 {{ partial "languages" . }}
             {{ end }}
 
+            {{ if .Site.Params.display.certificates }}
+                {{ partial "certificates" . }}
+            {{ end }}
+
             {{ if .Site.Params.display.awards }}
                 {{ partial "awards" . }}
             {{ end }}

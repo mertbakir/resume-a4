@@ -29,12 +29,20 @@ languages:
     level: "Professional"
     certificates: ["YDS: 86.25 - 2018", "TOEFL: 109 - 2021"]
 
-
 awards:
   - name: "Tübitak - Graduation Project"
     date: "2017"
     details: "A Decision Support System for 3D Cutting Problem"
 
+certificates:
+  - name: "Supervised Learning: Regression"
+    date: "2020"
+    issued_by: "Coursera"
+    link: "https://www.coursera.org/account/accomplishments/certificate/7T7YUWB8YNSH"
+
+  - name: "Supervised Learning: Classification"
+    date: "2020"
+    issued_by: "Coursera"
 
 about:
   - name: "MERT BAKIR"

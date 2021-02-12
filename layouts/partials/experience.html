@@ -1,5 +1,5 @@
 <div class="section">
-    <h1 class="section-title">Experience</h1>
+    <h1 class="section-title">{{ .Site.Params.title_as.experience }}</h1>
     {{ $companies := slice }}
     {{ range .Site.Data.experience }}
     {{ $companies = $companies | append .company }}
