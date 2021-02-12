@@ -7,6 +7,7 @@
   
   body {
     background: #FFF;
+    color: $text-color;
     font-family: $font-1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -14,6 +15,7 @@
   
   a {
     text-decoration: none;
+    color: $text-color;
   }
   
   li {
@@ -58,7 +60,7 @@
     font-family: $font-1;
     h1 {
       font-size: 64px;
-      color: $heading-color;
+      color: $text-color;
       letter-spacing: 0.15rem;
     }
   }

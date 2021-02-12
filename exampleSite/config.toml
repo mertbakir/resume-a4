@@ -21,7 +21,20 @@ tagline = true
 aboutMe = false
 projects = false
 papers = false
+certificates = true
 avatar = true
+
+[params.title_as]
+experience = "Experience"
+education = "Education"
+languages = "Languages"
+awards = "Awards"
+skills = "Skills"
+certificates = "Certifications"
+interests = "Interests"
+about_me = "About Me"
+papers = "Academic"
+projects = "Projects"
 
 [params.display.footer]
 footer = true
