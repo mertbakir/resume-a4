@@ -1,0 +1,12 @@
+- authors:
+    - last_name: Dantzing
+      first_name: George
+    - last_name: Sunstrider
+      middle_name: "Felo'melorn"
+      first_name: Kael'thas
+  date: "2006"
+  title: "Additive Outlier Detection Via Extreme-Value Theory"
+  journal: Journal of Time Series Analysis
+  vol: 27
+  issue: 5
+  page: "29-34"

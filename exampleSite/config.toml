@@ -7,6 +7,7 @@ theme = "resume-A4"
 [params]
 useFontAwesome = true
 avatar = "avatar.jpg"
+bib_style = "IEEE" # IEEE, APA, else
 
 [params.display]
 experience = true
@@ -21,7 +22,7 @@ linkedin = false
 tagline = true
 aboutMe = false
 projects = false
-papers = false
+publications = false
 certificates = true
 avatar = true
 
@@ -34,7 +35,7 @@ skills = "Skills"
 certificates = "Certifications"
 interests = "Interests"
 about_me = "About Me"
-papers = "Academic"
+publications = "Publications"
 projects = "Projects"
 
 [params.display.footer]

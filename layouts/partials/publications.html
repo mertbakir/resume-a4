@@ -1,0 +1,56 @@
+<div class="section">
+    <h1 class="section-title">{{ .Site.Params.title_as.publications }}</h1>
+    {{ range .Site.Data.publications }}
+    <div class="item">
+        {{ if eq $.Site.Params.bib_style "IEEE" }}
+            <span>
+                {{ range .authors }}
+                    {{ substr .first_name 0 1 }}.
+                    {{ with .middle_name}}{{ substr . 0 1 }}.{{end}}
+                    {{ .last_name }},
+                {{ end }}
+            </span> <span>"{{ .title }}",</span>
+            {{ if .journal }}
+            <span>{{ .journal }}</span>, 
+                {{ with .vol }}
+                    <span>vol. {{.}}</span>,
+                {{ end }}
+                {{ with .page }}
+                    <span>pp. {{.}}</span>,
+                {{ end }}
+            {{ end }}
+            <span>{{ .date }}</span>.
+        
+        {{ else if eq $.Site.Params.bib_style "APA" }}
+            <span>
+                {{ $last_index := sub (.authors | len) 1 }}
+                {{ range $i, $e := .authors }}
+                {{ $e.last_name }},
+                {{ substr $e.first_name 0 1 }}.
+                {{- with $e.middle_name -}}{{ substr . 0 1 }}.{{- end -}}
+                {{- if ne $i $last_index -}},{{- end -}}
+                {{ end }}
+                <span>({{ .date }}).</span>
+            </span>
+            <span>{{ .title }}.</span>
+            {{ if .journal }}
+            <span>{{ .journal }}</span>
+                {{- if .vol -}}
+                    <span>, {{.vol}}{{if .issue}}({{.issue}}){{end}}</span>,
+                {{- end -}}
+                {{ with .page }}
+                    <span>{{.}}</span>
+                {{ end }}
+            {{ end }}.
+        
+        {{ else }}
+            {{ range .authors }}
+                {{ .last_name }} {{ substr .first_name 0 1 }}.
+            {{ end }}
+
+            {{ .title }}
+            {{ .date }}.
+        {{ end }}
+    </div>
+    {{ end }}
+</div>
