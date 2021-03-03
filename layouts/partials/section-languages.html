@@ -1,0 +1,11 @@
+{{ range .Data.features.languages }}
+<div class="item">
+	<h2 class="item-title">
+		{{- .name -}}
+		<span> - {{ .level }}</span>
+	</h2>
+	{{ range .certificates }}
+	<li>{{.}}</li>
+	{{ end }}
+</div>
+{{ end }}

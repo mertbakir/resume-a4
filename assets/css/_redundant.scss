@@ -1,0 +1,23 @@
+*::-webkit-scrollbar {
+  width: 12px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: $toprak;
+  outline: 1px solid $toprak;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: lighten($toprak, 50%);
+}
+
+::selection {
+  background: $toprak;
+  color: white;
+}
+
+::-moz-selection {
+  background: $toprak;
+  color: white;
+}

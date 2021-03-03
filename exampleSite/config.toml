@@ -2,59 +2,126 @@ baseURL = "/"
 languageCode = "en-us"
 title = "Resume | MERT BAKIR"
 disableKinds = ["taxonomy", "term", "page", "section", "RSS", "sitemap", "robotsTXT", "404"]
-theme = "resume-A4"
+theme = "resume-a4"
 
 [params]
 useFontAwesome = true
+css = [ "custom.scss" ]
+
+[params.header]
 avatar = "avatar.jpg"
-bib_style = "IEEE" # IEEE, APA, else
-
-[params.display]
-experience = true
-education = true
-languages = true
-awards = true
-skills = true
-skills_grouped = false
-interests = true
-contact = false
-linkedin = false
+contact = true
 tagline = true
-aboutMe = false
-projects = false
-publications = false
-certificates = true
-avatar = true
-
-[params.title_as]
-experience = "Experience"
-education = "Education"
-languages = "Languages"
-awards = "Awards"
-skills = "Skills"
-certificates = "Certifications"
-interests = "Interests"
-about_me = "About Me"
-publications = "Publications"
-projects = "Projects"
-
-[params.display.footer]
-footer = true
 links = true
-credits = true
+
+# Construct main column, side column and additional page from features
+# Every column and page may include any features. Some features are
+# created using generic widgets and you can add easily new features,
+# as long as an existing widget can render it as you like.
+#
+# Common keys:
+#   feature: name of the feature. For generic features, this is also the root key in the yaml file.
+#   title: string rendered as the header of the element. Can be disabled with an empty string.
+#   collection: the base name of the yaml file containing the data. Defaults to "features".
+#   widget: `layout/partials/section-<widget>.html` used to render this element.
+#
+# Common widgets:
+#
+#   details-list:
+#     Used by default, if section-<feature>.html doesn't exists.
+#
+#     Expects data in format (in yaml file):
+#       title: the title string
+#       subtitle: string rendered under title. E.g., company for projects, certificate authority etc.
+#       date: date string, e.g., when a certificate was given
+#       details: a text in markdown.
+#       link: url where the title will link to
+#       links: list of links rendered as a bullet list below details
+#         prefix: a string before the link
+#         title: a string inside the link
+#         url: the destination of the link
+#         icon: the icon string, e.g., "fas fa-cloud". rendered inside link and after title.
+#
+#   word-list:
+#     Handy for skills and interests etc.
+#
+#     Additional keys:
+#       style: Rendering style for word list. One of: list, compact, or title-list
+#
+#     Expects data in format (in yaml file):
+#       A list of strings, if style is "list", or
+#
+#       A list of:
+#         groupName: title of the group
+#         list: list of strings rendered under the group
+
+# Side panel
+
+[[params.side]]
+feature = "education"
+
+[[params.side]]
+feature = "languages"
+
+[[params.side]]
+feature = "skills"
+widget = "word-list"
+style = "title-list" # list, compact, title-list
+
+[[params.side]]
+feature = "interests"
+widget = "word-list"
+style = "list" # list, compact, title-list
+
+
+# First Page
+
+[[params.pages]]
+[[params.pages.features]]
+feature = "about"
+title = "About Me"
+
+[[params.pages.features]]
+feature = "experience"
+
+
+# Additional Pages
+
+[[params.pages]]
+[[params.pages.features]]
+feature = "projects"
+collection = "projects"
+
+[[params.pages.features]]
+feature = "publications"
+style = "IEEE" # IEEE, APA, else
+
+[[params.pages.features]]
+feature = "awards"
+
+[[params.pages.features]]
+feature = "certificates"
+title = "Certifications"
+
+
+# Footer
 
 [params.footer]
-footnote = "You can print this resume in A4 size or save as pdf. | Last update on 01.09.2020."
+show = true
+credits = true
+footnote = "You can print this resume in A4 size or save as pdf. | Last update on 2020-09-01."
 
-[params.footer.links]
-[[params.footer.links.link]]
+[[params.footer.links]]
 prefix = "Contact me on"
-name = "Linkedin"
+title = "Linkedin"
 url = "https://linkedin.com/in/mertbakir/"
 icon = "fab fa-linkedin"
 
-[[params.footer.links.link]]
+[[params.footer.links]]
 prefix = "Check out my"
-name = "Website"
+title = "Website"
 url = "https://mertbakir.gitlab.io/about/"
 icon = "fas fa-globe"
+
+
+# p.s. if you know YAML, then you should use that for this file.

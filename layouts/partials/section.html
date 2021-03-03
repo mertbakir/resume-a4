@@ -1,0 +1,12 @@
+<div class="section section-{{ .Feature.feature }}">
+	{{- if or (not (isset .Feature "title")) .Feature.title -}}
+	<h1 class="section-title">{{ .Feature.title | default (title .Feature.feature) }}</h1>
+	{{- end -}}
+	{{- $partial := (printf "section-%s.html" (default .Feature.feature .Feature.widget)) -}}
+	{{- $collection := index .Data (default "features" .Feature.collection) -}}
+	{{- if and (not (templates.Exists (printf "partials/%s" $partial))) (isset $collection .Feature.feature) -}}
+	{{ partial "section-details-list.html" . }}
+	{{- else -}}
+	{{ partial $partial . }}
+	{{- end -}}
+</div>

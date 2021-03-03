@@ -1,0 +1,32 @@
+{{- $collection := index .Data (.Feature.collection | default "features" ) -}}
+{{ range (index $collection .Feature.feature) }}
+<div class="item">
+	<h2 class="item-title">
+		{{- if .link -}}
+		<a href="{{ .link }}">{{ .title }}</a>
+		{{- else -}}
+		{{ .title }}
+		{{- end -}}
+	</h2>
+	<span>{{ if and .subtitle .date }}
+		{{- .subtitle | markdownify }} - {{ .date }}
+	{{- else if .subtitle }}
+		{{- .subtitle | markdownify }}
+	{{- else if .date }}
+		{{- .date }}
+	{{- end }}</span>
+	{{ if .details }}
+		{{- partial "markdown" .details }}
+	{{- end }}
+	{{ if .links }}
+	<ul>
+		{{- range .links }}
+		<li>
+			{{- .prefix -}}
+			<a href="{{ .url }}" class="{{ if and $.useFontAwesome .icon }}no-external-icon{{ end }}">{{ .title }}{{ if and $.useFontAwesome .icon }}<i class="{{ .icon }}"></i>{{ end }}</a>
+			{{- end -}}
+		</li>
+	</ul>
+	{{ end }}
+</div>
+{{ end }}

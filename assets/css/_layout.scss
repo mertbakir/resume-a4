@@ -1,0 +1,154 @@
+.paper {
+  position: relative;
+  margin: 0.5rem auto;
+  padding: 0.45in 0.5in;
+  width: 210mm;
+  height: 297mm;
+  background-color: #fff;
+  -webkit-box-shadow: 0.2rem 0.2rem 0.6rem #aaa;
+  -moz-box-shadow: 0.2rem 0.2rem 0.6rem #aaa;
+  box-shadow: 0.2rem 0.2rem 0.6rem #aaa;
+  box-sizing: border-box;
+
+  font-size: 0.88rem;
+
+  h1, h2, h3 {
+    line-height: 1.2;
+  }
+
+  h1 {
+    margin-bottom: 0.8rem;
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    margin-bottom: 0.4rem;
+    font-size: 1.1rem;
+  }
+
+  h3 {
+    margin-bottom: 0.2rem;
+    font-size: 1rem;
+  }
+
+  p {
+    margin: 0.5rem 0;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    text-align: justify;
+  }
+
+  > *:first-child {
+    margin-top: 0;
+  }
+}
+
+main.paper {
+  margin-top: 2.5rem;
+  padding-top: 0;
+
+  .grid {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-column-gap: 0;
+    grid-row-gap: 0;
+
+    .flex-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  header {
+    grid-area: 1 / 1 / 2 / 8;
+    border-bottom: $border-color 0.05rem solid;
+
+    .title {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-family: $font-1;
+
+      h1 {
+        margin-bottom: 0.4rem;
+        font-size: 4rem;
+        color: $text-color;
+        letter-spacing: 0.15rem;
+        text-transform: uppercase;
+      }
+
+      h2 {
+        margin-bottom: 0.3rem;
+        font-size: 1rem;
+      }
+    }
+
+    .avatar {
+      display: block;
+      margin: 1rem auto;
+      padding: 1rem;
+      object-fit: cover;
+      height: 8.75rem;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      -o-border-radius: 50%;
+      border-radius: 50%;
+    }
+  }
+
+  .left-column, .right-column {
+    margin-top: 0.75rem;
+
+    > *:first-child,
+    > *:first-child > *:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .left-column {
+    grid-area: 2 / 1 / 7 / 6;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-right: $border-color 0.05rem solid;
+    padding-right: 1rem;
+  }
+
+  .right-column {
+    grid-area: 2 / 6 / 7 / 8;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 0.5rem;
+
+    li {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    h1 {
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    h2 {
+      margin-bottom: 0.2rem;
+      font-size: 1rem;
+    }
+
+    h3 {
+      margin-bottom: 0.1rem;
+      font-size: 0.8rem;
+    }
+
+    p {
+      font-size: 0.8rem;
+      line-height: 1.3;
+    }
+  }
+}

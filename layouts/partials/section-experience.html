@@ -1,0 +1,16 @@
+{{ range .Data.experience }}
+<div class="item group">
+	<h2 class="item-title">{{ .company }}</h2>
+	{{ range .roles }}
+	<div class="item">
+		<div class="flex-row">
+			<span class="job-title">{{ .role }}</span>
+			<span class="date">{{ .date }}</span>
+		</div>
+		{{ if .details }}
+		<p>{{ .details | markdownify }}</p>
+		{{ end }}
+	</div>
+	{{ end }}
+</div>
+{{ end }}
