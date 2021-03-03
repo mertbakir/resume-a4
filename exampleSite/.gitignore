@@ -1,0 +1,21 @@
+# Compressed files
+*.zip
+*.gz
+*.tar
+*.7z
+
+# Folder view configuration files
+.DS_Store
+Desktop.ini
+
+# Thumbnail cache files
+._*
+Thumbs.db
+
+# Sass
+.sass-cache
+
+# Local
+/_local
+/public/
+/resources/
