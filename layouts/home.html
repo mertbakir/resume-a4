@@ -1,75 +1,59 @@
-
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}"><!DOCTYPE html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    {{ $style := resources.Get "sass/main.scss" | toCSS | minify | fingerprint }}
-    <link rel="stylesheet" href="{{ $style.Permalink }}" />
-    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
-    {{ if .Site.Params.useFontAwesome }}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
-    {{ end }}
-    <title itemprop="name">{{ .Site.Title }}</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	{{ $style := resources.Get "css/main.scss" | toCSS | minify | fingerprint }}
+	<link rel="stylesheet" href="{{ $style.Permalink }}" />
+	<link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+	{{ if .Site.Params.useFontAwesome }}
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+	{{ end }}
+	{{ range .Site.Params.css }}
+	{{ $style := resources.Get (printf "css/%s" .) }}
+		{{ if $style }}
+		<link rel="stylesheet" href="{{ ($style | toCSS | minify | fingerprint).Permalink }}" />
+		{{ end }}
+	{{ end }}
+	<title itemprop="name">{{ .Site.Title }}</title>
 </head>
 
 <body>
-    <main class="resumeCanvas">
-        <div class="gridParent">
-            <header class="flex-row">{{ partial "header" . }}</header>
+	<main class="paper">
+		<div class="grid">
+			<header class="flex-row">
+				{{ partial "header" (dict "Header" .Site.Params.header "Data" .Site.Data "useFontAwesome" .Site.Params.useFontAwesome) }}
+			</header>
 
-            <div class="leftSide">
-            {{ if .Site.Params.display.aboutMe }}
-                {{ partial "about-me" . }}
-            {{ end }}
-            
-            {{ if .Site.Params.display.experience }}
-                {{ partial "experience" . }}
-            {{ end }}
+			{{ range first 1 .Site.Params.pages }}
+			<div class="left-column">
+				{{ range .features }}
+					{{ partial "section" (dict "Feature" . "Data" $.Site.Data "useFontAwesome" $.Site.Params.useFontAwesome) }}
+				{{ end }}
+			</div>
+			{{ end }}
 
-            {{ if .Site.Params.display.projects }}
-                {{ partial "projects" . }}
-            {{ end }}
-        
-            {{ if .Site.Params.display.publications }}
-                {{ partial "publications" . }}
-            {{ end }}
+			<div class="right-column">
+				{{ range .Site.Params.side }}
+					{{ partial "section" (dict "Feature" . "Data" $.Site.Data "useFontAwesome" $.Site.Params.useFontAwesome) }}
+				{{ end }}
+			</div>
+		</div>
+	</main>
 
-            {{ if .Site.Params.display.certificates }}
-            {{ partial "certificates" . }}
-            {{ end }}
+	{{ range after 1 .Site.Params.pages }}
+	<article class="paper">
+		{{ range .features }}
+			{{ partial "section" (dict "Feature" . "Data" $.Site.Data "useFontAwesome" $.Site.Params.useFontAwesome) }}
+		{{ end }}
+	</article>
+	{{ end }}
 
-            </div>
-
-            <div class="rightSide">
-             {{ if .Site.Params.display.education }}
-                {{ partial "education" . }}
-            {{ end }}
-
-            {{ if .Site.Params.display.languages }}
-                {{ partial "languages" . }}
-            {{ end }}
-
-            {{ if .Site.Params.display.awards }}
-                {{ partial "awards" . }}
-            {{ end }}
-
-            {{ if .Site.Params.display.skills }}
-                {{ partial "skills" . }}
-            {{ end }}
-
-            {{ if .Site.Params.display.skills_grouped }}
-                {{ partial "skills_grouped" . }}
-            {{ end }}
-
-            {{ if .Site.Params.display.interests }}
-                {{ partial "interests" . }}
-            {{ end }}
-        </div>
-    </main>
-    {{ if .Site.Params.display.footer.footer }}
-    <footer>{{ partial "footer" .}}</footer>
-    {{ end }}
+	{{ if .Site.Params.footer.show }}
+	<footer>
+		{{ partial "footer" (dict "Footer" .Site.Params.footer "useFontAwesome" .Site.Params.useFontAwesome) }}
+	</footer>
+	{{ end }}
 </body>
 </html>

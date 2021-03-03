@@ -1,0 +1,15 @@
+main.paper {
+  header .title h1 {
+    // You might want to change the font size if you have a long or a short name
+    //font-size: 4rem;
+
+    // You may disable all capitals name with this.
+    //text-transform: none;
+  }
+
+  .section-experience p {
+    // If you have a lot of experiences, you can lower the line height
+    // to fit more text on a single page.
+    //line-height: 1.5;
+  }
+}

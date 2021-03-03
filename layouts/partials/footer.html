@@ -1,20 +1,27 @@
-{{ if .Site.Params.display.footer.credits }}
+{{ if .Footer.links }}
+<span class="footer-item">
+	{{ range .Footer.links }}
+	<span class="footer-link">
+		{{ .prefix }}
+		<a href="{{ .url }}" class="no-external-icon">
+			<span>{{ .title }} </span>
+			{{ if and $.useFontAwesome .icon }}<i class="{{ .icon }}"></i>{{ end }}
+		</a>
+	</span>
+	{{ end }}
+</span>
+{{ end }}
+
+<span class="footer-item">
+	{{ .Footer.footnote }}
+</span>
+
+{{ if .Footer.credits }}
 <span class="footer-item" id="credits">
-Resume-A4 project is open-sourced by <a href="https://gitlab.com/mertbakir/resume-A4"><span class="link-text">Mert Bakır </span><i class="fab fa-gitlab"></i></a>
+	<span>The open-source theme Resume-A4 is designed by</span>
+	<a href="https://gitlab.com/mertbakir/resume-A4" class="no-external-icon"><span>Mert&nbsp;Bakır</span>&nbsp;<i class="fab fa-gitlab"></i></a>
+	<br>
+	<span>and template code by</span>
+	<a href="https://gitlab.com/raphendyr/hugo-theme-resume-A4" class="no-external-icon"><span>Jaakko&nbsp;Kantojärvi</span>&nbsp;<i class="fab fa-gitlab"></i></a>
 </span>
 {{ end }}
-
-{{ if .Site.Params.display.footer.links }}
-<span class="footer-item">
-    {{ range .Site.Params.footer.links.link }}
-<span id="link">
-    {{ .prefix }} <a href="{{.url}}"><span class="link-text">{{.name}} </span>
-    {{ if $.Site.Params.useFontAwesome }}<i class="{{.icon}}"></i>{{ end }}
-        </a></span>
-    {{ end }}
-</span>
-{{ end }}
-
-<span class="footer-item">
-    {{ .Site.Params.footer.footnote }}
-</span>

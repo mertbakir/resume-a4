@@ -1,16 +1,15 @@
-<div class="titleHeader">
-    {{ range .Site.Data.features.about }}
-    <h1 class="name">{{ .name }}</h1>
-    {{ if $.Site.Params.display.tagline }}<h3 class="tagline">{{ .tagline }}</h3>{{end}}
-    {{ if $.Site.Params.display.contact }}<span class="contact">{{ .phone }} | {{ .email }}</span>{{ end }}
-    {{ if $.Site.Params.display.linkedin }}
-    <a href="{{.url}}">
-        {{ if $.Site.Params.useFontAwesome }}<i class="fab fa-linkedin"></i>{{ end }}
-        {{ .linkedin }}
-    </a>
-        {{ end }}
-    {{ end }}
+<div class="title">
+	{{ with .Data.features.about }}
+		<h1 class="name">{{ .name }}</h1>
+		{{ if $.Header.tagline }}<h2 class="tagline">{{ .tagline }}</h2>{{end}}
+		{{ if $.Header.contact }}<span class="contact">{{ .phone }} | {{ .email }}</span>{{ end }}
+		{{ if $.Header.links }}
+			{{ range .links }}
+			<a href="{{ .url }}" class="no-external-icon">{{ if and $.useFontAwesome .icon }}<i class="{{ .icon }}"></i>{{ end }}{{ .title }}</a>
+			{{ end }}
+		{{ end }}
+	{{ end }}
 </div>
-{{ if .Site.Params.display.avatar }}
-<div><img class="avatar right" src="{{.Site.Params.avatar}}"></div>
+{{ if .Header.avatar }}
+<div><img class="avatar right" src="{{ .Header.avatar }}"></div>
 {{ end }}

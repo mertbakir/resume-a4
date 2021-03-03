@@ -1,9 +1,0 @@
-<div class="section">
-    <h1 class="section-title">{{ .Site.Params.title_as.awards }}</h1>
-        {{ range .Site.Data.features.awards }}
-        <div class="item">
-            <h3 class="item-title">{{ .name }}</h3>
-            {{ .details | markdownify }} - {{ .date }}
-        </div>
-        {{ end }}
-</div>

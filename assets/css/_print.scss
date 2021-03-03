@@ -1,0 +1,59 @@
+/* Print */
+
+@media print {
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    html, body {
+        background: #fff;
+        margin: 0;
+        padding: 0;
+    }
+
+    .paper, main.paper {
+      margin: 0;
+      width: 210mm;
+      height: 297mm;
+      overflow: hidden;
+      -moz-box-shadow: none;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      page-break-after: always;
+    }
+
+    a {
+      text-decoration: none;
+
+      &:not(.non-existing)::after {
+        content: " (" attr(href) ")";
+        margin: 0;
+        font-weight: 400;
+        font-size: 0.75rem;
+        color: scale-color($text-color, $lightness: 30%);
+      }
+
+      .item-title & {
+        &::after {
+          content: attr(href);
+          display: block;
+          margin: 0;
+        }
+      }
+
+      .section-publications & {
+        &::after {
+          content: attr(href);
+          display: block;
+          margin: 0 0.75rem;
+        }
+      }
+    }
+
+    .item-title {}
+
+    footer {
+      display: none;
+    }
+}

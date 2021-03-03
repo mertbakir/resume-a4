@@ -1,0 +1,105 @@
+.section {
+  margin-bottom: 1.5rem;
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+
+  .right-column & {
+    margin-bottom: 1rem;
+  }
+}
+
+.section-title {
+  border-left: solid 0.4rem $text-color;
+  padding-left: 0.5rem;
+  font-family: $font-1;
+
+  .right-column & {
+    border-left: solid 0.3rem $text-color;
+  }
+}
+
+.item {
+  margin-bottom: 0.6rem;
+
+  dl {
+    dt {
+      display: inline;
+      font-weight: 600;
+
+      &::after {
+        content: ': '
+      }
+    }
+
+    dd {
+      display: inline;
+
+      &:not(:last-child)::after {
+        content: "";
+        display: block;
+        margin-bottom: 0.4em;
+      }
+
+      *:not(:last-child)::after {
+        content: "; ";
+        margin-right: 0.25rem;
+      }
+
+    }
+  }
+
+  &.group {
+    .item {
+      margin-top: 0;
+    }
+  }
+}
+
+.item-title {
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.item-info {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.job-title {
+  font-size: 14px;
+  font-style: italic;
+}
+
+.date {
+ color: scale-color($text-color, $lightness: 30%);
+}
+
+main.paper .right-column,
+main.paper .left-column,
+.paper {
+  .section-education {
+    h2 {
+      margin-bottom: 0;
+      font-size: 1rem;
+    }
+  }
+
+  .section-languages {
+    .item {
+      margin-bottom: 0.4rem;
+    }
+
+    h2 {
+      margin-bottom: 0.1rem;
+      font-size: 0.9rem;
+      line-height: 1.1;
+
+      span {
+        font-weight: 400;
+        font-size: 0.8rem;
+      }
+    }
+  }
+}

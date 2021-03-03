@@ -1,0 +1,7 @@
+{{ range .Data.education }}
+<div class="item">
+	<h2 class="item-title">{{ .name }}</h2>
+	<span>{{ .university }}</span><br>
+	<span>{{ .date }}{{ if .gpa }} | GPA: {{ .gpa }}{{ end }}</span>
+</div>
+{{ end }}

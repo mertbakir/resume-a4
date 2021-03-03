@@ -1,57 +1,70 @@
+about:
+  name: Mert Bakir
+  tagline: Data Scientist
+  phone: "5070*4****"
+  email: yourmail@yourdomain
+  links:
+    - title: /in/mertbakir
+      url: https://tr.linkedin.com/in/mertbakir
+      icon: fab fa-linkedin
+    - title: mertbakir
+      url: https://gitlab.com/mertbakir/
+      icon: fab fa-gitlab
+    - title: mertbakir
+      url: https://github.com/mertbakir
+      icon: fab fa-github
+  details: |
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare sollicitudin fringilla.
+    Aenean nec volutpat arcu. Maecenas quis tempus risus. Curabitur condimentum ligula in erat pharetra porta.
+
+    Nam suscipit nisi a bibendum lacinia.
+
+
 skills:
-  - "Python - R - SQL"
-  - "InfluxDB/TICK Stack"
-  - "Grafana - PowerBI"
-  - "Excel - Minitab - SPSS"
-  - "GAMS - OR-Tools - IBM CPLEX"
-  - "C# - Git - Docker - NGINX"
+  - groupName: Databases & Visualization
+    list:
+      - Grafana - Kibana - PowerBI
+      - InfluxDB - TICK Stack
 
-skillsGrouped:
-  - groupName: "Databases & Visualization"
-    skills: ["Grafana - Kibana - PowerBI", "InfluxDB - TICK Stack"]
- 
-  - groupName: "Data Analysis & Analytics"
-    skills: ["Python - R - SQL", "Excel - Minitab - SPSS", "GAMS - PuLP - OR Tools"]
+  - groupName: Data Analysis & Analytics
+    list:
+      - Python - R - SQL
+      - Excel - Minitab - SPSS
+      - GAMS - PuLP - OR Tools
 
-  - groupName: "Programming & Systems"
-    skills: ["C# - Git - Docker - NGINX", "Linux - CentOS RHEL"]
+  - groupName: Programming & Systems
+    list:
+      - C# - Git - Docker - NGINX
+      - Linux - CentOS RHEL
 
 interests:
-  - "Data Science"
-  - "AI Applications"
-  - "Optimization Problems"
+  - Data Science
+  - AI Applications
+  - Optimization Problems
 
 languages:
-  - name: "Turkish"
-    level: "Native"
+  - name: Turkish
+    level: Native
 
-  - name: "English"
-    level: "Professional"
-    certificates: ["YDS: 86.25 - 2018", "TOEFL: 109 - 2021"]
+  - name: English
+    level: Professional
+    certificates:
+      - "YDS: 86.25 - 2018"
+      - "TOEFL: 109 - 2021"
 
 awards:
-  - name: "Tübitak - Graduation Project"
+  - title: Tübitak - Graduation Project
     date: "2017"
-    details: "A Decision Support System for 3D Cutting Problem"
+    details: |
+      A Decision Support System for 3D Cutting Problem
 
 certificates:
-  - name: "Supervised Learning: Regression"
+  - title: "Supervised Learning: Regression"
+    subtitle: Coursera
     date: "2020"
-    issued_by: "Coursera"
-    link: "https://xkcd.com/605/"
+    link: https://xkcd.com/605/
 
-  - name: "Supervised Learning: Classification"
+  - title: "Supervised Learning: Classification"
+    subtitle: Coursera
     date: "2020"
-    issued_by: "Coursera"
-    link: "https://xkcd.com/388/"
-
-
-about:
-  - name: "MERT BAKIR"
-    tagline: "Data Scientist"
-    phone: "5070*4****"
-    linkedin: "/in/mertbakir"
-    email: "yourmail@yourdomain"
-    details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare sollicitudin fringilla.
-              Aenean nec volutpat arcu. Maecenas quis tempus risus. Curabitur condimentum ligula in erat pharetra porta. 
-              Nam suscipit nisi a bibendum lacinia."
+    link: https://xkcd.com/388/

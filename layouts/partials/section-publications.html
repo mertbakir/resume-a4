@@ -1,0 +1,63 @@
+{{ range .Data.publications }}
+<div class="item">
+	{{- if .link }}
+	<a href="{{ .link }}">
+	{{- end -}}
+	{{- if eq $.Feature.style "IEEE" }}
+		<span>
+			{{- range .authors -}}
+				{{- substr .first_name 0 1 }}. {{ with .middle_name }}{{ substr . 0 1 }}. {{ end }}{{ .last_name }},
+			{{- end -}}
+		</span>
+		<span>"{{ .title }}",</span>
+		{{- if .journal }}
+		<span>
+			{{- "" -}}
+			<i>{{ .journal }}</i>,
+			{{- with .vol }} vol. {{.}},{{ end -}}
+			{{- with .page }} pp. {{.}},{{ end -}}
+		</span>
+		{{- else if .thesis }}
+		<span>{{ .thesis }},</span>
+		{{- end }}
+		<span>{{ .date }}</span>.
+	{{- else if eq $.Feature.style "APA" }}
+		<span>
+			{{- $last_index := sub (.authors | len) 1 -}}
+			{{- range $i, $e := .authors -}}
+			{{- if and (gt $i 0) (eq $i $last_index) }}& {{ end -}}
+			{{- $e.last_name }}, {{ substr $e.first_name 0 1 }}.{{ with $e.middle_name }} {{ substr . 0 1 }}.{{ end -}}
+			{{- if ne $i $last_index }}, {{ end -}}
+			{{- end -}}
+		</span>
+		<span>({{ .date }}).</span>
+		<span>{{ .title }}.</span>
+		{{- if .journal }}
+		<span>
+			{{- "" -}}
+			<i>{{- .journal -}}</i>
+			{{- if .vol }}, <i>{{.vol}}</i>{{with .issue}}({{.}}){{end}}{{ end -}}
+			{{- with .page }}, pp.{{.}}{{ end -}}
+			.
+			{{- "" -}}
+		</span>
+		{{ end }}
+	{{- else }}
+		<span>
+			{{- $last_index := sub (.authors | len) 1 -}}
+			{{- range $i, $e := .authors -}}
+			{{- if and (gt $i 0) (eq $i $last_index) }}and {{ end -}}
+			{{- $e.last_name }}, {{ substr $e.first_name 0 1 }}.{{ with $e.middle_name }} {{ substr . 0 1 }}.{{ end -}}
+			{{- if ne $i $last_index }}, {{ end -}}
+			{{- end -}}
+			,
+			{{- "" -}}
+		</span>
+		{{ with .date }}<span>{{.}}.</span>{{ end }}
+		<span>{{ .title }}</span>
+	{{- end -}}
+	{{- if .link }}
+	</a>
+	{{- end }}
+</div>
+{{ end }}
