@@ -2,11 +2,30 @@
 	{{ with .Data.features.about }}
 		<h1 class="name">{{ .name }}</h1>
 		{{ if $.Header.tagline }}<h2 class="tagline">{{ .tagline }}</h2>{{end}}
-		{{ if $.Header.contact }}<span class="contact">{{ .phone }} | {{ .email }}</span>{{ end }}
-		{{ if $.Header.links }}
-			{{ range .links }}
-			<a href="{{ .url }}" class="no-external-icon">{{ if and $.useFontAwesome .icon }}<i class="{{ .icon }}"></i>{{ end }}{{ .title }}</a>
-			{{ end }}
+		{{ if $.Header.contact -}}
+			<span class="contact">
+				{{- with .phone -}}
+					{{- if $.useFontAwesome }}<i class="fas fa-phone-square-alt"></i> {{ end -}}
+					{{- . -}}
+				{{- end -}}
+				{{- if and .phone .email }} | {{ end -}}
+				{{- with .email -}}
+					{{- if $.useFontAwesome }}<i class="fas fa-envelope"></i> {{ end -}}
+					{{- . -}}
+				{{- end -}}
+			</span>
+		{{- end }}
+		{{ if $.Header.links -}}
+			<span class="contact-links">
+				{{- $last := sub (len .links) 1 -}}
+				{{- range $i, $e := .links -}}
+				<a href="{{ $e.url }}" class="no-external-icon">
+					{{- if and $e.icon $.useFontAwesome }}<i class="{{ $e.icon }}"></i> {{ end -}}
+					{{- $e.title -}}
+				</a>
+				{{- if ne $i $last }} | {{ end -}}
+				{{- end -}}
+			</span>
 		{{ end }}
 	{{ end }}
 </div>
