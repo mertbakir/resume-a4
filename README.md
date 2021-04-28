@@ -1,10 +1,18 @@
+# !! Breaking Changes !!
+
+Thanks to [@raphendyr](https://gitlab.com/raphendyr), we can now add more than one page and change order of the sections. Also, there are tons of refactoring which made the theme more modular.
+
+**If you are already using a previous version of the theme, you will get an ERROR** after this update. Don't worry. The solution is very easy. You just need to edit ```projects.yaml```, ```features.yaml``` and ```config.yaml``` since their structure has changed. After that, all should be fine.
+
 # Features
 
 * Simple, easy to use, single or multi page, A4-sized Resume generator.
 * Print friendly, just use your browser or save as PDF.
 * Write your resume in yaml. All content stored in data files.
-* Remove/Add sections from `config.toml`.
-* Section names are configurable in `config.toml`. So, you can write in any language you want.
+* Add/Remove sections order change section orders by editing `config.yaml`.
+* Section names are configurable in `config.yaml`. So, you can write in any language you want.
+
+[Here is a blog post](https://mertbakir.gitlab.io/projects/resume-a4/) about this project.
 
 # How To Use
 
@@ -19,7 +27,7 @@ cd themes
 git clone https://gitlab.com/mertbakir/resume-a4.git
 ```
 
-or add ass a submodule
+or add as a submodule
 
 ```
 git submodule add https://gitlab.com/mertbakir/resume-a4.git themes/resume-a4
@@ -27,19 +35,26 @@ git submodule add https://gitlab.com/mertbakir/resume-a4.git themes/resume-a4
 
 ## Start
 
-1. Copy `config.toml` from `exampleSite` to the root directory of your hugo project.
-2. Open `config.toml` and add your relevant information.
+1. Copy `config.yaml` from `exampleSite` to the root directory of your hugo project.
+2. Open `config.yaml` and add your relevant information.
 3. Copy `data` folder from `exampleSite` to the root directory of your hugo project. All you need is that folder.
 4. Create your resume in yaml files.
 
-## Notes
+## Config File
 
-* Add/Remove sections in `config.toml`
-* Set avatar link in `config.toml`, keep your image under `static` folder if you want.
-* You can change `style` of the `publications` feature in the config file.
-  I've created options for APA and IEEE standards.
-  You can add more standards to `section-publications.html` file in the `layouts\partials` folder if you are looking for something else.
-* [Here is the blog post](https://mertbakir.gitlab.io/projects/resume-a4/) about this project.
+* You can add/remove sections.
+* Add multiple pages as many as you like. (_still, let's not forget the aim here. a resume should be precise. I don't think a recruiter will scroll down on it._)
+* Order of the "features" are important in the config file. 
+
+### Custom CSS
+
+Copy the ```\assets``` folder under the ```exampleSite``` directory if you like to make simple modifications.
+### Avatar
+
+Set avatar link in `config.yaml`, you may keep the image under `static` folder.
+### Publications
+
+You can change `style` of the `publications` feature in the config file. There are options for APA and IEEE standards. Report me on gitlab or send a merge requests if standarts are erroneous. I'm no expert on citation standarts.
 
 # License
 

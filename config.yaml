@@ -1,18 +1,8 @@
-baseURL = "/"
-languageCode = "en-us"
-title = "Resume | MERT BAKIR"
-disableKinds = ["taxonomy", "term", "page", "section", "RSS", "sitemap", "robotsTXT", "404"]
-theme = "resume-a4"
-
-[params]
-useFontAwesome = true
-css = [ "custom.scss" ]
-
-[params.header]
-avatar = "avatar.jpg"
-contact = true
-tagline = true
-links = true
+baseURL: "/"
+languageCode: "en-us"
+title: "Resume | MERT BAKIR"
+disableKinds: ["taxonomy", "term", "page", "section", "RSS", "sitemap", "robotsTXT", "404"]
+theme: "resume-a4"
 
 # Construct main column, side column and additional page from features
 # Every column and page may include any features. Some features are
@@ -55,73 +45,52 @@ links = true
 #         groupName: title of the group
 #         list: list of strings rendered under the group
 
-# Side panel
-
-[[params.side]]
-feature = "education"
-
-[[params.side]]
-feature = "languages"
-
-[[params.side]]
-feature = "skills"
-widget = "word-list"
-style = "title-list" # list, compact, title-list
-
-[[params.side]]
-feature = "interests"
-widget = "word-list"
-style = "list" # list, compact, title-list
-
-
-# First Page
-
-[[params.pages]]
-[[params.pages.features]]
-feature = "about"
-title = "About Me"
-
-[[params.pages.features]]
-feature = "experience"
-
-
-# Additional Pages
-
-[[params.pages]]
-[[params.pages.features]]
-feature = "projects"
-collection = "projects"
-
-[[params.pages.features]]
-feature = "publications"
-style = "IEEE" # IEEE, APA, else
-
-[[params.pages.features]]
-feature = "awards"
-
-[[params.pages.features]]
-feature = "certificates"
-title = "Certifications"
-
-
-# Footer
-
-[params.footer]
-show = true
-credits = true
-footnote = "You can print this resume in A4 size or save as pdf. | Last update on 2020-09-01."
-
-[[params.footer.links]]
-prefix = "Contact me on"
-title = "Linkedin"
-url = "https://linkedin.com/in/mertbakir/"
-icon = "fab fa-linkedin"
-
-[[params.footer.links]]
-prefix = "Check out my"
-title = "Website"
-url = "https://mertbakir.gitlab.io/about/"
-icon = "fas fa-globe"
-
-
-# p.s. if you know YAML, then you should use that for this file.
+params:
+  useFontAwesome: true
+  css:
+    - custom.scss
+  header:
+    avatar: avatar.jpg
+    contact: true
+    tagline: true
+    links: false
+  side:
+    - feature: languages
+    - feature: skills
+      widget: word-list
+      style: compact # list, compact, title-list
+    - feature: education
+    - feature: interests
+      widget: word-list
+      style: list
+  pages:
+    - features:
+        - feature: about
+          title: About Me
+        - feature: experience
+    - features:
+        - feature: projects
+          collection: projects
+        - feature: publications
+          style: IEEE # IEEE, APA, else
+        - feature: awards
+        - feature: certificates
+          title: Certifications
+        - feature: interests
+          widget: word-list
+          style: list
+        
+  footer:
+    show: true
+    credits: true
+    footnote: >-
+      You can print this resume in A4 size or save as pdf. | Last update on 2020-09-01.
+    links:
+      - prefix: Contact me on
+        title: Linkedin
+        url: 'https://linkedin.com/in/mertbakir/'
+        icon: fab fa-linkedin
+      - prefix: Check out my
+        title: Website
+        url: 'https://mertbakir.gitlab.io/about/'
+        icon: fas fa-globe

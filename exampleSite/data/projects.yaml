@@ -13,5 +13,5 @@ projects:
     Bring CI/CD to your resume using YAML and Git."
   links:
   - title: Available in GitLab
-    utl: https://gitlab.com/mertbakir/resume-a4
+    url: https://gitlab.com/mertbakir/resume-a4
     icon: fab fa-gitlab
