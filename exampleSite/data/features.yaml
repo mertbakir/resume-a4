@@ -52,17 +52,29 @@ languages:
       - "YDS: 86.25 - 2018"
       - "TOEFL: 109 - 2021"
 
+# This will use the default widget: "details-list"
 awards:
-  - title: Tübitak - Graduation Project
+  - title: "Tübitak - Graduation Project"
     date: "2017"
-    details: |
-      A Decision Support System for 3D Cutting Problem
+    subtitle: "A Decision Support System for 3D Cutting Problem"
+    #details: |
+    #   - add more here if you like to.
+    #   - or just comment out/delete the field.
+    links:
+      - title: example
+        url: https://mertbakir.gitlab.io
+        icon: fas fa-bolt
+        prefix: "This is an " # use quotation marks if you want to pass the tailing space.
+      - title: second link.
+        url: https://esdfdsfdsf
+        icon: "-" # you can get rid of the icon by entering dummy text
+        prefix: "omg"
 
 certificates:
   - title: "Supervised Learning: Regression"
     subtitle: Coursera
     date: "2020"
-    link: https://xkcd.com/605/
+    link: https://xkcd.com/605/ # This link will be on title level.
 
   - title: "Supervised Learning: Classification"
     subtitle: Coursera
