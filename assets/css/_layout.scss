@@ -66,6 +66,7 @@ main.paper {
   header {
     grid-area: 1 / 1 / 2 / 8;
     border-bottom: $border-color 0.05rem solid;
+    height: 12.75rem;
 
     .title {
       display: flex;

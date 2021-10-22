@@ -1,9 +1,3 @@
-# !! Breaking Changes !!
-
-Thanks to [@raphendyr](https://gitlab.com/raphendyr), we can now add more than one page and change order of the sections. Also, there are tons of refactoring which made the theme more modular.
-
-**If you are already using a previous version of the theme, you will get an ERROR** after this update. Don't worry. The solution is very easy. You just need to edit ```projects.yaml```, ```features.yaml``` and ```config.yaml``` since their structure has changed. After that, all should be fine.
-
 # Features
 
 * Simple, easy to use, single or multi page, A4-sized Resume generator.
@@ -51,10 +45,17 @@ git submodule add https://gitlab.com/mertbakir/resume-a4.git themes/resume-a4
 Copy the ```\assets``` folder under the ```exampleSite``` directory if you like to make simple modifications.
 ### Avatar
 
-Set avatar link in `config.yaml`, you may keep the image under `static` folder.
+Set avatar link in `config.yaml`, you may keep the image under `static` folder. You can set it as ```false``` if you don't want to add a picture.
+
 ### Publications
 
 You can change `style` of the `publications` feature in the config file. There are options for APA and IEEE standards. Report me on gitlab or send a merge requests if standarts are erroneous. I'm no expert on citation standarts.
+
+## Print | Save As PDF
+
+There is a snippet in the ```exampleSite\assets\custom.scss``` file for printing the href attribute. It's not included as default. Because "save as pdf" is way more common usage than a hard copy. Also, I wouldn't prefer printing a long url on a hard copy.
+
+If you don't like the result of "save as pdf" in Mozilla Firefox, try Chrome or a Chromium-based browser. Probably, because Firefox doesn't support [this](https://developer.mozilla.org/en-US/docs/Web/CSS/%40page/size).
 
 # License
 
