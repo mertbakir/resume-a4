@@ -11,13 +11,9 @@
 }
 
 .section-title {
-  border-left: solid 0.4rem $text-color;
-  padding-left: 0.5rem;
+  border-left: solid 0.35rem $text-color;
+  padding-left: 0.4rem;
   font-family: $font-1;
-
-  .right-column & {
-    border-left: solid 0.3rem $text-color;
-  }
 }
 
 .item {
