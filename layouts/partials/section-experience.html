@@ -8,7 +8,7 @@
 			<span class="date">{{ .date }}</span>
 		</div>
 		{{ if .details }}
-		<p>{{ .details | markdownify }}</p>
+		{{- partial "markdown" .details }}
 		{{ end }}
 	</div>
 	{{ end }}
