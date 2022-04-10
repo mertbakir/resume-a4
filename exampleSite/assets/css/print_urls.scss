@@ -1,0 +1,30 @@
+
+@media print {
+
+    a:not(.non-existing)::after {
+    content: " (" attr(href) ")";
+    margin: 0;
+    font-weight: 400;
+    font-size: 0.75rem;
+    color: scale-color(#202020, $lightness: 30%);
+    }
+
+    a {
+
+        .item-title & {
+            &::after {
+                content: attr(href);
+                display: block;
+                margin: 0;
+            }
+            }
+        
+            .section-publications & {
+            &::after {
+                content: attr(href);
+                display: block;
+                margin: 0 0.75rem;
+            }
+            }
+    }
+}

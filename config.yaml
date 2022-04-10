@@ -49,6 +49,7 @@ params:
   useFontAwesome: true
   css:
     - custom.scss
+#   - print_urls.scss
   header:
     avatar: avatar.jpg
     contact: true
