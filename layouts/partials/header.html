@@ -10,8 +10,10 @@
 				{{- end -}}
 				{{- if and .phone .email }} | {{ end -}}
 				{{- with .email -}}
-					{{- if $.useFontAwesome }}<i class="fas fa-envelope"></i> {{ end -}}
-					{{- . -}}
+					<a href="mailto:{{- . -}}" class="no-external-icon">
+						{{- if $.useFontAwesome }}<i class="fas fa-envelope"></i> {{ end -}}
+						{{- . -}}
+					</a>
 				{{- end -}}
 			</span>
 		{{- end }}
