@@ -2,35 +2,16 @@
 	{{ with .Data.features.about }}
 		<h1 class="name">{{ .name }}</h1>
 		{{ if $.Header.tagline }}<h2 class="tagline">{{ .tagline }}</h2>{{end}}
-		{{ if $.Header.contact -}}
-			<span class="contact">
-				{{- with .phone -}}
-					{{- if $.useFontAwesome }}<i class="fas fa-phone-square-alt"></i> {{ end -}}
-					{{- . -}}
-				{{- end -}}
-				{{- if and .phone .email }} | {{ end -}}
-				{{- with .email -}}
-					<a href="mailto:{{- . -}}" class="no-external-icon">
-						{{- if $.useFontAwesome }}<i class="fas fa-envelope"></i> {{ end -}}
-						{{- . -}}
-					</a>
-				{{- end -}}
-			</span>
-		{{- end }}
-		{{ if $.Header.links -}}
-			<span class="contact-links">
-				{{- $last := sub (len .links) 1 -}}
-				{{- range $i, $e := .links -}}
-				<a href="{{ $e.url }}" class="no-external-icon">
-					{{- if and $e.icon $.useFontAwesome }}<i class="{{ $e.icon }}"></i> {{ end -}}
-					{{- $e.title -}}
-				</a>
-				{{- if ne $i $last }} | {{ end -}}
-				{{- end -}}
-			</span>
+		{{ if $.Header.avatar }}
+			{{ partial "_header_links" (dict "Header" $.Header "Data" $.Data "useFontAwesome" $.useFontAwesome "Separator" " | ") }}
 		{{ end }}
 	{{ end }}
 </div>
+	
 {{ if .Header.avatar }}
 <div><img class="avatar right" src="{{ .Header.avatar }}"></div>
+{{ else }}
+	<div class="title">
+	{{ partial "_header_links" (dict "Header" .Header "Data" .Data "useFontAwesome" .useFontAwesome "Separator" "<br>") }}
+	</div>
 {{ end }}

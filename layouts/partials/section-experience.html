@@ -1,16 +1,27 @@
+
 {{ range .Data.experience }}
+{{ $page := .page | default 1 }}
+{{- if eq $.Page $page -}}
 <div class="item group">
 	<h2 class="item-title">{{ .company }}</h2>
 	{{ range .roles }}
 	<div class="item">
 		<div class="flex-row">
 			<span class="job-title">{{ .role }}</span>
-			<span class="date">{{ .date }}</span>
+			<span class="soft-color">{{ .date }}</span>
 		</div>
+		
+		{{- if and $.Params.experience.tools.show .tools -}}
+		<div class="flex-row">
+		<span></span>
+		<span class="soft-color"><i>{{ $.Params.experience.tools.title }}: {{ .tools }}</i></span></div>
+		{{- end -}}
+
 		{{ if .details }}
 		{{- partial "markdown" .details }}
 		{{ end }}
 	</div>
 	{{ end }}
 </div>
+{{- end -}}
 {{ end }}

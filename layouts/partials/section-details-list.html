@@ -23,7 +23,7 @@
 		{{- range .links }}
 		<li>
 			{{- .prefix -}}
-			<a href="{{ .url }}" class="{{ if and $.useFontAwesome .icon }}no-external-icon{{ end }}">{{ .title }}{{ if and $.useFontAwesome .icon }}<i class="{{ .icon }}"></i>{{ end }}</a>
+			<a href="{{ .url }}" class="{{ if and $.Params.useFontAwesome .icon }}no-external-icon{{ end }}">{{ .title }}{{ if and $.Params.useFontAwesome .icon }}<i class="{{ .icon }}"></i>{{ end }}</a>
 			{{- end -}}
 		</li>
 	</ul>

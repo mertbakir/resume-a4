@@ -11,8 +11,6 @@
 }
 
 .section-title {
-  border-left: solid 0.35rem $text-color;
-  padding-left: 0.4rem;
   font-family: $font-1;
 }
 
@@ -47,9 +45,13 @@
   }
 
   &.group {
+    margin-bottom: 1rem;
     .item {
       margin-top: 0;
     }
+  }
+  &.group:last-child {
+    margin-bottom: 0;
   }
 }
 
@@ -65,22 +67,17 @@
 
 .job-title {
   font-size: 14px;
+  font-weight: 600;
 }
 
-.date {
+.soft-color {
  color: scale-color($text-color, $lightness: 30%);
 }
 
+main.paper .single-column,
 main.paper .right-column,
 main.paper .left-column,
 .paper {
-  .section-education {
-    h2 {
-      margin-bottom: 0;
-      font-size: 1rem;
-    }
-  }
-
   .section-languages {
     .item {
       margin-bottom: 0.4rem;

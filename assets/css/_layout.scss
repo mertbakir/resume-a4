@@ -18,12 +18,12 @@
 
   h1 {
     margin-bottom: 0.8rem;
-    font-size: 1.5rem;
+    font-size: 1.35rem;
   }
 
   h2 {
     margin-bottom: 0.4rem;
-    font-size: 1.1rem;
+    font-size: 1.20rem;
   }
 
   h3 {
@@ -66,7 +66,6 @@ main.paper {
   header {
     grid-area: 1 / 1 / 2 / 8;
     border-bottom: $border-color 0.05rem solid;
-    height: 12.75rem;
 
     .title {
       display: flex;
@@ -106,7 +105,10 @@ main.paper {
     }
   }
 
-  .left-column, .right-column {
+  .left-column, .right-column, .single-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     margin-top: 0.75rem;
 
     > *:first-child,
@@ -115,30 +117,23 @@ main.paper {
     }
   }
 
+  .single-column {
+    grid-area: 2 / 1 / 6 / 8;
+  }
+
   .left-column {
     grid-area: 2 / 1 / 7 / 6;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
     border-right: $border-color 0.05rem solid;
     padding-right: 1rem;
   }
 
   .right-column {
     grid-area: 2 / 6 / 7 / 8;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
     margin-left: 0.5rem;
 
     li {
       list-style-type: none;
       padding: 0;
-    }
-
-    h1 {
-      margin-bottom: 0.5rem;
-      font-size: 1.2rem;
     }
 
     h2 {

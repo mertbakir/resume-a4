@@ -51,7 +51,7 @@ params:
     - custom.scss
 #   - print_urls.scss
   header:
-    avatar: avatar.jpg
+    avatar: false # avatar.jpg
     contact: true
     tagline: true
     links: false
@@ -70,6 +70,8 @@ params:
           title: About Me
         - feature: experience
     - features:
+        - feature: experience
+          title: Experience (Cont.)
         - feature: projects
           collection: projects
         - feature: publications
@@ -80,6 +82,13 @@ params:
         - feature: interests
           widget: word-list
           style: list
+  experience:
+    tools: 
+      show: false
+      title: Technologies
+  education:
+    location:
+      show: true
         
   footer:
     show: true

@@ -1,10 +1,15 @@
-- name: "Msc. Industrial Engineering"
-  university: "Yildiz Technical University"
-  more: "English - with Thesis" # Optional field, if you want to add a non-standard line.
-  date: "2019- 2021"
-  gpa: "3.71 / 4.00"
+- name: Msc. Industrial Engineering
+  university: Yildiz Technical University
+  location: Istanbul, TR
+  more: with Thesis # Optional field, if you want to add a non-standard line.
+  link: https://... # Optional field, include a link to your project.
+  date: 2019- 2021
+  gpa: 3.71 / 4.00
+  details: >
+    Include details if you like to... 
 
-- name: "Bsc. Industrial Engineering"
-  university: "Gazi University"
-  date: "2013 - 2017"
-  gpa : "3.35 / 4.00"
+- name: Bsc. Industrial Engineering
+  university: Gazi University
+  location: Ankara, TR
+  date: 2013 - 2017
+  gpa : 3.35 / 4.00

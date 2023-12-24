@@ -1,8 +1,41 @@
+{{ $isOnSide := false }}
+{{ range .Params.side }}
+{{ if eq .feature "education" }}
+	{{ $isOnSide = true }}
+{{ end }}
+{{ end }}
+
 {{ range .Data.education }}
 <div class="item">
-	<h2 class="item-title">{{ .name }}</h2>
-	<span>{{ .university }}</span><br>
-	{{ if .more }}<span>{{ .more }}</span><br>{{ end }}
+
+	{{- if and $.Params.education.location.show .location -}}
+	{{ if $isOnSide }}
+	<h2 class="item-title">{{ .university }}</h2>
+	<span>{{ .location }}</span><br>
+	{{- else -}}
+	<div class="flex-row">
+		<h2 class="item-title">{{ .university }}</h2>
+		<span class="soft-color">{{ .location }}</span>
+	</div>	
+	{{- end -}}
+	{{- else -}}
+	<h2 class="item-title">{{ .university }}</h2>
+
+	{{- end -}}
+	
+	<span>{{ .name }}</span><br>
+	
+	{{- if .more -}}
+		{{- if .link -}}
+		<span><a href="{{ .link }}">{{ .more }}</a></span><br>
+		{{- else -}}
+		<span>{{ .more }}</span><br>
+		{{- end -}}
+	{{- end -}}
 	<span>{{ .date }}{{ if .gpa }} | GPA: {{ .gpa }}{{ end }}</span>
+
+	{{ if .details }}
+		{{- partial "markdown" .details }}
+	{{ end }}
 </div>
 {{ end }}

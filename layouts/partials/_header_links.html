@@ -1,0 +1,33 @@
+{{ with .Data.features.about }}
+    {{ $sep := $.Separator | default "<br>" }}
+    {{- if $.Header.contact -}}
+        <span class="contact">
+            {{- with .phone -}}
+                {{- if $.useFontAwesome }}<i class="fas fa-tty"></i> {{ end -}}
+                <!-- fas fa-phone-alt -->
+                {{- . -}}
+            {{- end -}}
+            {{- if and .phone .email }} {{- $sep | safeHTML -}} {{ end -}}
+            {{- with .email -}}
+                <a href="mailto:{{- . -}}" class="no-external-icon">
+                    {{- if $.useFontAwesome }}<i class="fas fa-envelope"></i> {{ end -}}
+                    {{- . -}}
+                </a>
+            {{- end -}}
+        </span>
+    {{- end -}}
+
+    {{- if $.Header.links -}}
+        <span class="contact-links">
+            {{- $last := sub (len .links) 1 -}}
+            {{- range $i, $e := .links -}}
+            <a href="{{ $e.url }}" class="no-external-icon">
+                {{- if and $e.icon $.useFontAwesome }}<i class="{{ $e.icon }}"></i> {{ end -}}
+                {{- $e.title -}}
+            </a>
+            {{- if ne $i $last }}  {{- $sep | safeHTML -}} {{ end -}}
+            {{- end -}}
+        </span>
+    {{- end -}}
+
+{{- end -}}

@@ -20,34 +20,36 @@
 </head>
 
 <body>
+	{{ $.Scratch.Set "index" 0 }}
+	{{ range .Site.Params.pages }}
+	{{ $.Scratch.Set "index" (add ($.Scratch.Get "index") 1) }}
 	<main class="paper">
 		<div class="grid">
 			<header class="flex-row">
-				{{ partial "header" (dict "Header" .Site.Params.header "Data" .Site.Data "useFontAwesome" .Site.Params.useFontAwesome) }}
+				{{ partial "header" (dict "Header" $.Site.Params.header "Data" $.Site.Data "useFontAwesome" $.Site.Params.useFontAwesome) }}
 			</header>
 
-			{{ range first 1 .Site.Params.pages }}
+			{{- if eq ($.Scratch.Get "index") 1 -}}
 			<div class="left-column">
 				{{ range .features }}
-					{{ partial "section" (dict "Feature" . "Data" $.Site.Data "useFontAwesome" $.Site.Params.useFontAwesome) }}
+					{{ partial "section" (dict "Feature" . "Data" $.Site.Data "Params" $.Site.Params "Page" ($.Scratch.Get "index")) }}
 				{{ end }}
 			</div>
-			{{ end }}
 
 			<div class="right-column">
-				{{ range .Site.Params.side }}
-					{{ partial "section" (dict "Feature" . "Data" $.Site.Data "useFontAwesome" $.Site.Params.useFontAwesome) }}
+				{{ range $.Site.Params.side }}
+					{{ partial "section" (dict "Feature" . "Data" $.Site.Data "Params" $.Site.Params "Page" ($.Scratch.Get "index")) }}
 				{{ end }}
 			</div>
+			{{- else -}}
+			<div class="single-column">
+				{{- range .features -}}
+					{{ partial "section" (dict "Feature" . "Data" $.Site.Data "Params" $.Site.Params "Page" ($.Scratch.Get "index")) }}
+				{{- end -}}
+			</div>
+			{{- end -}}
 		</div>
 	</main>
-
-	{{ range after 1 .Site.Params.pages }}
-	<article class="paper">
-		{{ range .features }}
-			{{ partial "section" (dict "Feature" . "Data" $.Site.Data "useFontAwesome" $.Site.Params.useFontAwesome) }}
-		{{ end }}
-	</article>
 	{{ end }}
 
 	{{ if .Site.Params.footer.show }}
