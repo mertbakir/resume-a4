@@ -27,20 +27,21 @@
 	
 	{{ $useFontAwesome := $.Params.education.useFontAwesome | default $.Params.useFontAwesome }}
 	{{ $noExternalIcon := not ($.Params.education.externalLinkIcon | default $.Params.externalLinkIcon) }}
+
+	<span>{{ .date }}{{ if .gpa }} | GPA: {{ .gpa }}{{ end }}</span>
 	{{- if .more -}}
 		{{- if .link -}}
 			{{- if $useFontAwesome -}}
-			<span><a class="no-external-icon" href="{{ .link }}">{{ .more }}</a></span>
+			<br><span><a class="no-external-icon" href="{{ .link }}">{{ .more }}</a></span>
 			<i class="fas fa-link"></i><br>
 			{{- else -}}
 			<span><a class="{{ if $noExternalIcon }}no-external-icon{{ end }}" href="{{ .link }}">{{ .more }}</a></span><br>
 			{{- end -}}
 		{{- else -}}
-		<span>{{ .more }}</span><br>
+		<span>{{ .more }}</span>
 		{{- end -}}
 	{{- end -}}
-	<span>{{ .date }}{{ if .gpa }} | GPA: {{ .gpa }}{{ end }}</span>
-
+	
 	{{ if .details }}
 		{{- partial "markdown" .details }}
 	{{ end }}
