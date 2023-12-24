@@ -25,9 +25,16 @@
 	
 	<span>{{ .name }}</span><br>
 	
+	{{ $useFontAwesome := $.Params.education.useFontAwesome | default $.Params.useFontAwesome }}
+	{{ $noExternalIcon := not ($.Params.education.externalLinkIcon | default $.Params.externalLinkIcon) }}
 	{{- if .more -}}
 		{{- if .link -}}
-		<span><a href="{{ .link }}">{{ .more }}</a></span><br>
+			{{- if $useFontAwesome -}}
+			<span><a class="no-external-icon" href="{{ .link }}">{{ .more }}</a></span>
+			<i class="fas fa-link"></i><br>
+			{{- else -}}
+			<span><a class="{{ if $noExternalIcon }}no-external-icon{{ end }}" href="{{ .link }}">{{ .more }}</a></span><br>
+			{{- end -}}
 		{{- else -}}
 		<span>{{ .more }}</span><br>
 		{{- end -}}

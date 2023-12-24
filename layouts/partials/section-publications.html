@@ -1,7 +1,14 @@
 {{ range .Data.publications }}
 <div class="item">
+	{{ $useFontAwesome := $.Params.publications.useFontAwesome | default $.Params.useFontAwesome }}
+	{{ $noExternalIcon := not ($.Params.publications.externalLinkIcon | default $.Params.externalLinkIcon) }}
+
 	{{- if .link }}
-	<a href="{{ .link }}">
+	{{- if $useFontAwesome}}
+	<i class="fas fa-link"></i> <a class="no-external-icon" href="{{ .link }}">
+	{{- else -}}
+		<a class="{{ if $noExternalIcon }}no-external-icon{{ end }}" href="{{ .link }}">
+	{{- end -}}
 	{{- end -}}
 	{{- if eq $.Feature.style "IEEE" }}
 		<span>

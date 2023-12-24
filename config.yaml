@@ -47,6 +47,7 @@ theme: "resume-a4"
 
 params:
   useFontAwesome: true
+  externalLinkIcon: true
   css:
     - custom.scss
 #   - print_urls.scss
@@ -87,8 +88,18 @@ params:
       show: false
       title: Technologies
   education:
+    useFontAwesome: true
+    externalLinkIcon: false
     location:
-      show: true
+      show: false
+    details:
+      show: false
+  publications:
+    useFontAwesome: false
+    externalLinkIcon: false
+  itemTitle:
+    useFontAwesome: false
+    externalLinkIcon: false
         
   footer:
     show: true

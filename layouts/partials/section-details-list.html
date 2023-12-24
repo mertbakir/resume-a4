@@ -2,8 +2,15 @@
 {{ range (index $collection .Feature.feature) }}
 <div class="item">
 	<h2 class="item-title">
+		{{ $useFontAwesome := $.Params.itemTitle.useFontAwesome | default $.Params.useFontAwesome }}
+		{{ $noExternalIcon := not ($.Params.itemTitle.externalLinkIcon | default $.Params.externalLinkIcon) }}
+
 		{{- if .link -}}
-		<a href="{{ .link }}">{{ .title }}</a>
+			{{- if $useFontAwesome -}}
+			<i class="fas fa-link"></i> <a class="no-external-icon" href="{{ .link }}">{{ .title }}</a>
+			{{- else -}}
+			<a class="{{ if $noExternalIcon }}no-external-icon{{ end }}" href="{{ .link }}">{{ .title }}</a>
+			{{- end -}}
 		{{- else -}}
 		{{ .title }}
 		{{- end -}}
