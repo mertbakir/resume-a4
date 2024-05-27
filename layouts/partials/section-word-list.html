@@ -19,7 +19,7 @@
 			<dt>{{ .groupName }}</dt>
 			<dd>
 				{{- range .list -}}
-				<span>{{.}}</span>
+				<span>{{. | lower}}</span>
 				{{- end -}}
 			</dd>
 			{{ end }}
