@@ -94,6 +94,7 @@ params:
       show: false
     details:
       show: false
+    namePrimary: false
   publications:
     useFontAwesome: false
     externalLinkIcon: false
