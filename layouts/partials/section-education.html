@@ -1,17 +1,10 @@
-{{ $isOnSide := false }}
-{{ range .Params.side }}
-{{ if eq .feature "education" }}
-	{{ $isOnSide = true }}
-{{ end }}
-{{ end }}
 
 {{ range .Data.education }}
 <div class="item">
-
 	{{- if and $.Params.education.namePrimary -}}
 		<h2 class="item-title">{{ .name }}</h2>
 		{{- if and $.Params.education.location.show .location -}}
-			{{ if $isOnSide }}
+			{{ if $.isOnSide }}
 			<span>{{ .university }}, {{ .location }}</span></br>
 			{{- else -}}
 			<div class="flex-row">
@@ -26,7 +19,7 @@
 	{{- else -}}
 
 		{{- if and $.Params.education.location.show .location -}}
-		{{ if $isOnSide }}
+		{{ if $.isOnSide }}
 		<h2 class="item-title">{{ .university }}</h2>
 		<span>{{ .location }}</span><br>
 		{{- else -}}

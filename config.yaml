@@ -56,21 +56,25 @@ params:
     contact: true
     tagline: true
     links: false
-  side:
-    - feature: languages
-    - feature: skills
-      widget: word-list
-      style: compact # list, compact, title-list
-    - feature: education
-    - feature: interests
-      widget: word-list
-      style: list
   pages:
-    - features:
+    - header: true
+      side:
+      - feature: languages
+      - feature: skills
+        title: Technical Skills
+        widget: word-list
+        style: compact # list, compact, title-list
+      - feature: education
+      - feature: interests
+        widget: word-list
+        style: list
+      features:
         - feature: about
           title: About Me
         - feature: experience
-    - features:
+    - header: false
+      side: false
+      features:
         - feature: experience
           title: Experience (Cont.)
         - feature: projects
@@ -106,7 +110,7 @@ params:
     show: true
     credits: true
     footnote: >-
-      You can print this resume in A4 size or save as pdf. | Last update on 2020-09-01.
+      You can print this resume in A4 size or save as pdf. | Updated at 2020-09-01.
     links:
       - prefix: Contact me on
         title: Linkedin

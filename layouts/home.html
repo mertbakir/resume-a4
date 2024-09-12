@@ -27,11 +27,13 @@
 	{{ $.Scratch.Set "index" (add ($.Scratch.Get "index") 1) }}
 	<main class="paper">
 		<div class="grid">
+			{{- if .header -}}
 			<header class="flex-row">
 				{{ partial "header" (dict "Header" $.Site.Params.header "Data" $.Site.Data "useFontAwesome" $.Site.Params.useFontAwesome) }}
 			</header>
+			{{- end -}}
 
-			{{- if eq ($.Scratch.Get "index") 1 -}}
+			{{- if .side -}}
 			<div class="left-column">
 				{{ range .features }}
 					{{ partial "section" (dict "Feature" . "Data" $.Site.Data "Params" $.Site.Params "Page" ($.Scratch.Get "index")) }}
@@ -39,16 +41,17 @@
 			</div>
 
 			<div class="right-column">
-				{{ range $.Site.Params.side }}
-					{{ partial "section" (dict "Feature" . "Data" $.Site.Data "Params" $.Site.Params "Page" ($.Scratch.Get "index")) }}
+				{{ range .side }}
+					{{ partial "section" (dict "Feature" . "Data" $.Site.Data "Params" $.Site.Params "Page" ($.Scratch.Get "index") "isOnSide" true) }}
 				{{ end }}
 			</div>
+
 			{{- else -}}
-			<div class="single-column">
+				{{- if .header -}}<div class="single-column">{{- else -}}<div class="single-column-no-header">{{- end -}}
 				{{- range .features -}}
 					{{ partial "section" (dict "Feature" . "Data" $.Site.Data "Params" $.Site.Params "Page" ($.Scratch.Get "index")) }}
 				{{- end -}}
-			</div>
+				</div>
 			{{- end -}}
 		</div>
 	</main>

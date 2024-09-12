@@ -116,6 +116,10 @@ main.paper {
       margin-top: 0;
     }
   }
+  .single-column-no-header {
+    grid-area: 1 / 1 / 7 / 8;
+    margin-top: 2.5rem;
+  }
 
   .single-column {
     grid-area: 2 / 1 / 6 / 8;
