@@ -1,3 +1,10 @@
+# Announcement 2024-09-12
+
+This repo was originally hosted on [Gitlab](https://gitlab.com/mertbakir/resume-a4).
+Github version is ahead of the gitlab version and introduces very small breaking changes on the config file. If you are an old user, just update your config file and you're good to go. 
+
+I'll create a better guide explaining features and do proper versioning, just don't know when.
+
 # Features
 
 * Simple, easy to use, single or multi page, A4-sized Resume generator.
