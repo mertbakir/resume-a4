@@ -28,7 +28,7 @@
 	<main class="paper">
 		<div class="grid">
 			{{- if .header -}}
-			<header class="flex-row">
+			<header>
 				{{ partial "header" (dict "Header" $.Site.Params.header "Data" $.Site.Data "useFontAwesome" $.Site.Params.useFontAwesome) }}
 			</header>
 			{{- end -}}

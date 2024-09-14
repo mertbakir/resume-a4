@@ -1,17 +1,19 @@
+{{ $useFontAwesome := .Header.useFontAwesome | default .useFontAwesome }}
+
 <div class="title">
 	{{ with .Data.features.about }}
 		<h1 class="name">{{ .name }}</h1>
 		{{ if $.Header.tagline }}<h2 class="tagline">{{ .tagline }}</h2>{{end}}
-		{{ if $.Header.avatar }}
-			{{ partial "_header_links" (dict "Header" $.Header "Data" $.Data "useFontAwesome" $.useFontAwesome "Separator" " | ") }}
+		{{ if or ($.Header.avatar) (not $.Header.contactOnSide) }}
+			{{ partial "_header_links" (dict "Header" $.Header "Data" $.Data "useFontAwesome" $useFontAwesome "Separator" " | ") }}
 		{{ end }}
 	{{ end }}
 </div>
 	
 {{ if .Header.avatar }}
 <div><img class="avatar right" src="{{ .Header.avatar }}"></div>
-{{ else }}
+{{ else if $.Header.contactOnSide }} 
 	<div class="title">
-	{{ partial "_header_links" (dict "Header" .Header "Data" .Data "useFontAwesome" .useFontAwesome "Separator" "<br>") }}
+	{{ partial "_header_links" (dict "Header" .Header "Data" .Data "useFontAwesome" $useFontAwesome "Separator" "<br>") }}
 	</div>
 {{ end }}

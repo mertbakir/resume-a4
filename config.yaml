@@ -46,12 +46,14 @@ theme: "resume-a4"
 #         list: list of strings rendered under the group
 
 params:
-  useFontAwesome: true
+  useFontAwesome: true # Disables fontawesome completely. Lower true values won't turn it on.
   externalLinkIcon: true
   css:
     - custom.scss
 #   - print_urls.scss
   header:
+    useFontAwesome: true
+    contactOnSide: false  # true will put, contact and links on the right side. if avatar is set, this will always act like false.
     avatar: false # avatar.jpg
     contact: true
     tagline: true

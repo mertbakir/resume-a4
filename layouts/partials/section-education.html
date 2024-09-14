@@ -1,7 +1,7 @@
 
 {{ range .Data.education }}
 <div class="item">
-	{{- if and $.Params.education.namePrimary -}}
+	{{- if $.Params.education.namePrimary -}}
 		<h2 class="item-title">{{ .name }}</h2>
 		{{- if and $.Params.education.location.show .location -}}
 			{{ if $.isOnSide }}

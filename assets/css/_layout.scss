@@ -52,7 +52,7 @@ main.paper {
     height: 100%;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(6, 1fr);
+    grid-template-rows: repeat(7, 1fr);
     grid-column-gap: 0;
     grid-row-gap: 0;
 
@@ -66,12 +66,16 @@ main.paper {
   header {
     grid-area: 1 / 1 / 2 / 8;
     border-bottom: $border-color 0.05rem solid;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 
     .title {
       display: flex;
       flex-direction: column;
       justify-content: center;
       font-family: $font-1;
+      align-items: left;
 
       h1 {
         margin-bottom: 0.4rem;
@@ -117,22 +121,22 @@ main.paper {
     }
   }
   .single-column-no-header {
-    grid-area: 1 / 1 / 7 / 8;
+    grid-area: 1 / 1 / 8 / 8;
     margin-top: 2.5rem;
   }
 
   .single-column {
-    grid-area: 2 / 1 / 6 / 8;
+    grid-area: 2 / 1 / 8 / 8;
   }
 
   .left-column {
-    grid-area: 2 / 1 / 7 / 6;
+    grid-area: 2 / 1 / 8 / 6;
     border-right: $border-color 0.05rem solid;
     padding-right: 1rem;
   }
 
   .right-column {
-    grid-area: 2 / 6 / 7 / 8;
+    grid-area: 2 / 6 / 8 / 8;
     margin-left: 0.5rem;
 
     li {
