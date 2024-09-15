@@ -90,6 +90,7 @@ params:
           widget: word-list
           style: list
   experience:
+    grouped: false
     tools: 
       show: false
       title: Technologies

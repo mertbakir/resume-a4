@@ -65,9 +65,12 @@
   font-size: 14px;
 }
 
-.job-title {
-  font-size: 14px;
-  font-weight: 600;
+.job-experience {
+    margin-bottom: 12px;
+    .job-title {
+      font-size: 16px;
+      font-weight: 600;
+    }
 }
 
 .soft-color {
