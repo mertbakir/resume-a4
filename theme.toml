@@ -3,9 +3,9 @@
 
 name = "Resume A4"
 license = "MIT"
-licenselink = "https://gitlab.com/mertbakir/resume-A4/LICENSE"
-description = " Write your resume in yaml. Simple, easy to use, single page, A4-sized Resume generator."
-homepage = "https://gitlab.com/mertbakir/resume-A4"
+licenselink = "https://github.com/mertbakir/resume-A4/LICENSE"
+description = "Write your resume in yaml. Simple A4-sized Resume generator."
+homepage = "https://github.com/mertbakir/resume-A4"
 tags = ["resume", "single page", "simple"]
 features = []
 min_version = "0.41.0"

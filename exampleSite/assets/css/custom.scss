@@ -34,7 +34,7 @@ main.paper {
       margin: 0;
       font-weight: 400;
       font-size: 0.75rem;
-      color: scale-color($text-color, $lightness: 30%);
+      color: scale-color(#000000, $lightness: 30%);
     }
 
     .item-title & {
