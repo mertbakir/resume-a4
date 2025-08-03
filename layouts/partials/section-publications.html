@@ -13,6 +13,7 @@
 
 	{{- $style_parts := split $.Feature.style "." -}}
 	{{- if in $style_parts "IEEE" }}
+	{{- if and .authors (gt (len .authors) 0) -}}
 	<span>
 		{{- $last_index := sub (len .authors) 1 -}}
 		{{- range $i, $e := .authors -}}
@@ -20,6 +21,7 @@
 		{{- if lt $i $last_index }}, {{ else }}.{{ end }}
 		{{- end }}
 	</span>
+	{{- end }}
 	<span>"{{ .title }}."</span>
 	{{- if .journal }}
 		<span>
@@ -31,6 +33,7 @@
 	<span>{{ .date }}.</span>
 
 	{{- else if in $style_parts "APA" }}
+	{{- if and .authors (gt (len .authors) 0) -}}
 	<span>
 		{{- $last_index := sub (.authors | len) 1 -}}
 		{{- range $i, $e := .authors -}}
@@ -39,6 +42,7 @@
 		{{- if and (lt $i $last_index) (ne $i (sub $last_index 1)) }}, {{ end -}}
 		{{- end }}
 	</span>
+	{{- end }}
 	<span> ({{ .date }}).</span>
 	<span> {{ .title }}.</span>
 	{{- if .journal }}
@@ -52,21 +56,23 @@
 		{{ with .journal }}
 		{{- if in $style_parts "MultiLine" }}<br>{{- else -}}, {{ end -}}
 		{{ . }}{{ end }}{{ with .date }}, {{ . }}{{ end }}
-		{{- if in $style_parts "Author" }}
+		{{- if and (in $style_parts "Author") .authors (gt (len .authors) 0) -}}
 		{{- if in $style_parts "MultiLine" }}<br>{{- else -}}. {{ end -}}
-		{{- $last_index := sub (len .authors) 1 -}}
-		{{- range $i, $e := .authors -}}
-		{{- substr $e.first_name 0 1 }}.{{ with $e.middle_name }} {{ substr . 0 1 }}.{{ end }} {{ $e.last_name }}
-		{{- if lt $i $last_index }}, {{ else }}.{{ end }}
-		{{- end }}
+			{{- $last_index := sub (len .authors) 1 -}}
+			{{- range $i, $e := .authors -}}
+			{{- substr $e.first_name 0 1 }}.{{ with $e.middle_name }} {{ substr . 0 1 }}.{{ end }} {{ $e.last_name }}
+			{{- if lt $i $last_index }}, {{ else }}.{{ end }}
+			{{- end }}
 		{{- end -}}
 	{{- else }}
 		<span>
-			{{- $last_index := sub (.authors | len) 1 -}}
-			{{- range $i, $e := .authors -}}
-			{{- if and (gt $i 0) (eq $i $last_index) }}and {{ end -}}
-			{{- $e.last_name }}, {{ substr $e.first_name 0 1 }}.{{ with $e.middle_name }} {{ substr . 0 1 }}.{{ end -}}
-			{{- if ne $i $last_index }}, {{ end -}}
+			{{- if and .authors (gt (len .authors) 0) -}}
+				{{- $last_index := sub (.authors | len) 1 -}}
+				{{- range $i, $e := .authors -}}
+				{{- if and (gt $i 0) (eq $i $last_index) }}and {{ end -}}
+				{{- $e.last_name }}, {{ substr $e.first_name 0 1 }}.{{ with $e.middle_name }} {{ substr . 0 1 }}.{{ end -}}
+				{{- if ne $i $last_index }}, {{ end -}}
+				{{- end -}}
 			{{- end -}}
 			,
 			{{- "" -}}
