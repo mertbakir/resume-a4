@@ -1,9 +1,11 @@
 about:
-  name: Mert Bakir
-  tagline: Data Scientist
-  phone: "5070*4****"
-  email: yourmail@yourdomain
+  name: Mert Bakır
+  tagline: Head of Busywork
+  phone: "5070*4****"        # Optional
+  email: yourmail@yourdomain # Optional
+  linkedin: yourlinkedinname # Optional
   links:
+    # Add any link as you like.
     - title: /in/mertbakir
       url: https://tr.linkedin.com/in/mertbakir
       icon: fab fa-linkedin
