@@ -78,11 +78,15 @@ params:
       side: false
       features:
         - feature: experience
-          title: Experience (Cont.)
+          title: Experience (Cont.) # Leave titles empty if you want to remove them.
         - feature: projects
           collection: projects
         - feature: publications
-          style: IEEE # IEEE, APA, else
+          title: Academic Studies # You can rename sections.
+          style: IEEE
+          # IEEE, APA, else
+          # TitleFirst.Bold.Author.MultiLine 
+          # (TitleFirst is mandatory others are optional, try TitleFirst or TitleFirst.Bold )
         - feature: awards
         - feature: certificates
           title: Certifications

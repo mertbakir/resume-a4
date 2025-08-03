@@ -10,45 +10,56 @@
 		<a class="{{ if $noExternalIcon }}no-external-icon{{ end }}" href="{{ .link }}">
 	{{- end -}}
 	{{- end -}}
-	{{- if eq $.Feature.style "IEEE" }}
-		<span>
-			{{- range .authors -}}
-				{{- substr .first_name 0 1 }}. {{ with .middle_name }}{{ substr . 0 1 }}. {{ end }}{{ .last_name }},
-			{{- end -}}
-		</span>
-		<span>"{{ .title }}",</span>
-		{{- if .journal }}
-		<span>
-			{{- "" -}}
-			<i>{{ .journal }}</i>,
-			{{- with .vol }} vol. {{.}},{{ end -}}
-			{{- with .page }} pp. {{.}},{{ end -}}
-		</span>
-		{{- else if .thesis }}
-		<span>{{ .thesis }},</span>
+
+	{{- $style_parts := split $.Feature.style "." -}}
+	{{- if in $style_parts "IEEE" }}
+	<span>
+		{{- $last_index := sub (len .authors) 1 -}}
+		{{- range $i, $e := .authors -}}
+		{{- substr $e.first_name 0 1 }}.{{ with $e.middle_name }} {{ substr . 0 1 }}.{{ end }} {{ $e.last_name }}
+		{{- if lt $i $last_index }}, {{ else }}.{{ end }}
 		{{- end }}
-		<span>{{ .date }}</span>.
-	{{- else if eq $.Feature.style "APA" }}
+	</span>
+	<span>"{{ .title }}."</span>
+	{{- if .journal }}
 		<span>
-			{{- $last_index := sub (.authors | len) 1 -}}
-			{{- range $i, $e := .authors -}}
-			{{- if and (gt $i 0) (eq $i $last_index) }}& {{ end -}}
-			{{- $e.last_name }}, {{ substr $e.first_name 0 1 }}.{{ with $e.middle_name }} {{ substr . 0 1 }}.{{ end -}}
-			{{- if ne $i $last_index }}, {{ end -}}
-			{{- end -}}
+		<i>{{ .journal }}</i>
+		{{- with .vol }} vol. {{ . }}{{ end }}
+		{{- with .page }} pp. {{ . }}{{ end }}.
 		</span>
-		<span>({{ .date }}).</span>
-		<span>{{ .title }}.</span>
-		{{- if .journal }}
+	{{- end }}
+	<span>{{ .date }}.</span>
+
+	{{- else if in $style_parts "APA" }}
+	<span>
+		{{- $last_index := sub (.authors | len) 1 -}}
+		{{- range $i, $e := .authors -}}
+		{{- if and (gt $i 0) (eq $i $last_index) }} & {{ end -}}
+		{{- $e.last_name }}, {{ substr $e.first_name 0 1 }}.{{ with $e.middle_name }} {{ substr . 0 1 }}.{{ end -}}
+		{{- if and (lt $i $last_index) (ne $i (sub $last_index 1)) }}, {{ end -}}
+		{{- end }}
+	</span>
+	<span> ({{ .date }}).</span>
+	<span> {{ .title }}.</span>
+	{{- if .journal }}
 		<span>
-			{{- "" -}}
-			<i>{{- .journal -}}</i>
-			{{- if .vol }}, <i>{{.vol}}</i>{{with .issue}}({{.}}){{end}}{{ end -}}
-			{{- with .page }}, pp.{{.}}{{ end -}}
-			.
-			{{- "" -}}
+		<i>{{ .journal }}</i>{{ if .vol }}, <i>{{ .vol }}</i>{{ with .issue }}({{ . }}){{ end }}{{ end }}{{ with .page }}, pp. {{ . }}{{ end }}.
 		</span>
-		{{ end }}
+	{{- end }}
+
+	{{- else if in $style_parts "TitleFirst" }}
+		{{- if in $style_parts "Bold" }}<strong>{{ .title }}</strong>{{- else -}}{{ .title }}{{- end -}}
+		{{ with .journal }}
+		{{- if in $style_parts "MultiLine" }}<br>{{- else -}}, {{ end -}}
+		{{ . }}{{ end }}{{ with .date }}, {{ . }}{{ end }}
+		{{- if in $style_parts "Author" }}
+		{{- if in $style_parts "MultiLine" }}<br>{{- else -}}. {{ end -}}
+		{{- $last_index := sub (len .authors) 1 -}}
+		{{- range $i, $e := .authors -}}
+		{{- substr $e.first_name 0 1 }}.{{ with $e.middle_name }} {{ substr . 0 1 }}.{{ end }} {{ $e.last_name }}
+		{{- if lt $i $last_index }}, {{ else }}.{{ end }}
+		{{- end }}
+		{{- end -}}
 	{{- else }}
 		<span>
 			{{- $last_index := sub (.authors | len) 1 -}}
@@ -65,6 +76,14 @@
 	{{- end -}}
 	{{- if .link }}
 	</a>
+		{{- with .doi }}
+			<span>
+			{{- if $useFontAwesome}}
+			<i class="fas fa-link"></i> <a class="no-external-icon" href="{{ .link }}">
+			{{- else -}}
+			<a class="{{ if $noExternalIcon }}no-external-icon{{ end }}" href="https://doi.org/{{ . }}">
+			{{- end -}}doi:{{ . }}</a></span>
+		{{- end }}
 	{{- end }}
 </div>
 {{ end }}

@@ -4,9 +4,11 @@
     - last_name: Sunstrider
       middle_name: "Felo'melorn"
       first_name: Kael'thas
-  date: "2006"
+  date: 2006
   title: "Additive Outlier Detection Via Extreme-Value Theory"
   journal: Journal of Time Series Analysis
   vol: 27
   issue: 5
   page: "29-34"
+  link: https://example.com
+  doi: 10.1000/182
