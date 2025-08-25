@@ -1,4 +1,4 @@
-{{- $collection := index .Data (.Feature.collection | default "features" ) -}}
+{{- $collection := index .Data (.Feature.collection | default "features") -}}
 {{- $data := index $collection .Feature.feature }}
 {{- if eq .Feature.style "list" -}}
 	<div class="item">

@@ -1,18 +1,21 @@
-{{- $collection := index .Data (.Feature.collection | default "features" ) -}}
-{{ range (index $collection .Feature.feature) }}
+{{- $collection := index .Data (.Feature.collection | default "features") -}}
+{{- $items := index $collection .Feature.feature -}}
+{{- if $items -}}
+{{ range $items }}
 <div class="item">
 	<h2 class="item-title">
 		{{ $useFontAwesome := $.Params.itemTitle.useFontAwesome | default $.Params.useFontAwesome }}
 		{{ $noExternalIcon := not ($.Params.itemTitle.externalLinkIcon | default $.Params.externalLinkIcon) }}
+		{{ $titleText := or .title "Untitled Item" }}
 
 		{{- if .link -}}
 			{{- if $useFontAwesome -}}
-			<i class="fas fa-link"></i> <a class="no-external-icon" href="{{ .link }}">{{ .title }}</a>
+			<i class="fas fa-link"></i> <a class="no-external-icon" href="{{ .link }}">{{ $titleText }}</a>
 			{{- else -}}
-			<a class="{{ if $noExternalIcon }}no-external-icon{{ end }}" href="{{ .link }}">{{ .title }}</a>
+			<a class="{{ if $noExternalIcon }}no-external-icon{{ end }}" href="{{ .link }}">{{ $titleText }}</a>
 			{{- end -}}
 		{{- else -}}
-		{{ .title }}
+		{{ $titleText }}
 		{{- end -}}
 	</h2>
 	<span>{{ if and .subtitle .date }}
@@ -30,10 +33,21 @@
 		{{- range .links }}
 		<li>
 			{{- .prefix -}}
+			{{- if and .url .title -}}
 			<a href="{{ .url }}" class="{{ if and $.Params.useFontAwesome .icon }}no-external-icon{{ end }}">{{ .title }}{{ if and $.Params.useFontAwesome .icon }}<i class="{{ .icon }}"></i>{{ end }}</a>
+			{{- else if .title -}}
+			{{ .title }}
+			{{- else -}}
+			Invalid link
 			{{- end -}}
 		</li>
+		{{- end -}}
 	</ul>
 	{{ end }}
 </div>
 {{ end }}
+{{- else -}}
+<div class="item">
+	<p class="error">No data found for {{ .Feature.feature }} section.</p>
+</div>
+{{- end -}}

@@ -74,7 +74,13 @@
 }
 
 .soft-color {
- color: scale-color($text-color, $lightness: 30%);
+  color: scale-color($text-color, $lightness: 30%);
+}
+
+.error {
+  color: #d32f2f;
+  font-style: italic;
+  font-size: 0.9em;
 }
 
 main.paper .single-column,
