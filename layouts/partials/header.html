@@ -1,17 +1,22 @@
-{{ $useFontAwesome := .Header.useFontAwesome | default .useFontAwesome }}
+{{- $useFontAwesome := .Header.useFontAwesome | default .useFontAwesome -}}
+{{- $aboutData := .Data.features.about -}}
+{{- $name := $aboutData.name | default "Resume" -}}
+{{- $tagline := $aboutData.tagline -}}
+{{- $showTagline := and .Header.tagline $tagline -}}
+{{- $showContactInline := or .Header.avatar (not .Header.contactOnSide) -}}
 
 <div class="title">
-	<h1 class="name">{{ or .Data.features.about.name "" }}</h1>
-	{{ if and .Header.tagline .Data.features.about.tagline }}<h2 class="tagline">{{ .Data.features.about.tagline }}</h2>{{end}}
-	{{ if or .Header.avatar (not .Header.contactOnSide) }}
-		{{ partial "_header_links" (dict "Header" .Header "Data" .Data "useFontAwesome" $useFontAwesome "Separator" " | ") }}
-	{{ end }}
+	<h1 class="name">{{ $name }}</h1>
+	{{- if $showTagline -}}<h2 class="tagline">{{ $tagline }}</h2>{{- end -}}
+	{{- if $showContactInline -}}
+		{{- partial "_header_links" (dict "Header" .Header "Data" .Data "useFontAwesome" $useFontAwesome "Separator" " | ") -}}
+	{{- end -}}
 </div>
 	
-{{ if .Header.avatar }}
+{{- if .Header.avatar -}}
 <div><img class="avatar right" src="{{ .Header.avatar }}" alt="Profile picture"></div>
-{{ else if $.Header.contactOnSide }} 
+{{- else if .Header.contactOnSide -}} 
 	<div class="title">
-	{{ partial "_header_links" (dict "Header" .Header "Data" .Data "useFontAwesome" $useFontAwesome "Separator" "<br>") }}
+	{{- partial "_header_links" (dict "Header" .Header "Data" .Data "useFontAwesome" $useFontAwesome "Separator" "<br>") -}}
 	</div>
-{{ end }}
+{{- end -}}

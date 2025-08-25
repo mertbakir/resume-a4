@@ -1,23 +1,29 @@
-<section class="section section-{{ .Feature.feature }}">
-	{{- if or (not (isset .Feature "title")) .Feature.title -}}
-	<h2 class="section-title">{{ .Feature.title | default (title .Feature.feature) }}</h2>
+{{- $feature := .Feature.feature -}}
+{{- $title := .Feature.title | default (title $feature) -}}
+{{- $showTitle := or (not (isset .Feature "title")) .Feature.title -}}
+{{- $widget := .Feature.widget | default $feature -}}
+{{- $collectionName := .Feature.collection | default "features" -}}
+{{- $collection := index .Data $collectionName -}}
+
+<section class="section section-{{ $feature }}">
+	{{- if $showTitle -}}
+	<h2 class="section-title">{{ $title }}</h2>
 	{{- end -}}
 	
-	{{- $widget := .Feature.widget | default .Feature.feature -}}
-	{{- $partial := printf "section-%s.html" $widget -}}
-	{{- $collection := index .Data (.Feature.collection | default "features") -}}
-	
-	{{- if eq .Feature.feature "experience" -}}
+	{{- if eq $feature "experience" -}}
 		{{- if .Params.experience.grouped | default true -}}
-			{{ partial "section-experience.html" . }}
+			{{- partial "section-experience.html" . -}}
 		{{- else -}}
-			{{ partial "section-experience-nogroup.html" . }}
+			{{- partial "section-experience-nogroup.html" . -}}
 		{{- end -}}
-	{{- else if templates.Exists (printf "partials/%s" $partial) -}}
-		{{ partial $partial . }}
-	{{- else if and $collection (isset $collection .Feature.feature) -}}
-		{{ partial "section-details-list.html" . }}
 	{{- else -}}
-		<p class="error">Section "{{ .Feature.feature }}" not found or has no data.</p>
+		{{- $partial := printf "section-%s.html" $widget -}}
+		{{- if templates.Exists (printf "partials/%s" $partial) -}}
+			{{- partial $partial . -}}
+		{{- else if and $collection (isset $collection $feature) -}}
+			{{- partial "section-details-list.html" . -}}
+		{{- else -}}
+			<p class="error">Section "{{ $feature }}" not found or has no data.</p>
+		{{- end -}}
 	{{- end -}}
 </section>

@@ -4,18 +4,22 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	{{ $style := resources.Get "css/main.scss" | toCSS | minify | fingerprint }}
-	<link rel="stylesheet" href="{{ $style.RelPermalink }}" />
+	{{ $style := resources.Get "css/main.scss" | toCSS (dict "targetPath" "css/main.css" "enableSourceMap" (not hugo.IsProduction)) | minify | fingerprint }}
+	<link rel="preload" href="{{ $style.RelPermalink }}" as="style" onload="this.onload=null;this.rel='stylesheet'" integrity="{{ $style.Data.Integrity }}" />
+	<noscript><link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}" /></noscript>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 	{{ if .Site.Params.useFontAwesome }}
+	<link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+	<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
 	{{ end }}
 	{{ range .Site.Params.css }}
 	{{ $style := resources.Get (printf "css/%s" .) }}
 		{{ if $style }}
-		<link rel="stylesheet" href="{{ ($style | toCSS | minify | fingerprint).RelPermalink }}" />
+		{{ $processedStyle := $style | toCSS (dict "enableSourceMap" (not hugo.IsProduction)) | minify | fingerprint }}
+		<link rel="stylesheet" href="{{ $processedStyle.RelPermalink }}" integrity="{{ $processedStyle.Data.Integrity }}" />
 		{{ end }}
 	{{ end }}
 	<title itemprop="name">{{ .Site.Title }}</title>
