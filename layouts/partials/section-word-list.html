@@ -1,7 +1,7 @@
 {{- $collection := index .Data (.Feature.collection | default "features") -}}
 {{- $data := index $collection .Feature.feature }}
 {{- if eq .Feature.style "list" -}}
-	<div class="item">
+	<ul class="item">
 	{{ range $data }}
 		{{- if reflect.IsMap . -}}
 		{{- range .list -}}
@@ -11,7 +11,7 @@
 		<li>{{.}}</li>
 		{{- end -}}
 	{{ end }}
-	</div>
+	</ul>
 {{- else if eq .Feature.style "compact" -}}
 	<div class="item">
 		<dl>
@@ -28,10 +28,12 @@
 {{- else -}}
 	{{ range $data }}
 	<div class="item">
-		<h2 class="item-title">{{ .groupName }}</h2>
+		<h3 class="item-title">{{ .groupName }}</h3>
+		<ul>
 		{{ range .list }}
 		<li>{{.}}</li>
 		{{ end }}
+		</ul>
 	</div>
 	{{ end }}
 {{- end -}}

@@ -40,11 +40,11 @@
 				{{ end }}
 			</div>
 
-			<div class="right-column">
+			<aside class="right-column">
 				{{ range .side }}
 					{{ partial "section" (dict "Feature" . "Data" $.Site.Data "Params" $.Site.Params "Page" ($.Scratch.Get "index") "isOnSide" true) }}
 				{{ end }}
-			</div>
+			</aside>
 
 			{{- else -}}
 				{{- if .header -}}<div class="single-column">{{- else -}}<div class="single-column-no-header">{{- end -}}

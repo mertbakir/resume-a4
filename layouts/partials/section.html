@@ -1,6 +1,6 @@
-<div class="section section-{{ .Feature.feature }}">
+<section class="section section-{{ .Feature.feature }}">
 	{{- if or (not (isset .Feature "title")) .Feature.title -}}
-	<h1 class="section-title">{{ .Feature.title | default (title .Feature.feature) }}</h1>
+	<h2 class="section-title">{{ .Feature.title | default (title .Feature.feature) }}</h2>
 	{{- end -}}
 	
 	{{- $widget := .Feature.widget | default .Feature.feature -}}
@@ -20,4 +20,4 @@
 	{{- else -}}
 		<p class="error">Section "{{ .Feature.feature }}" not found or has no data.</p>
 	{{- end -}}
-</div>
+</section>

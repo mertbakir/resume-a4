@@ -1,6 +1,7 @@
 // Column layout styling for different resume layouts
 main.paper {
-  .left-column, .right-column, .single-column {
+  .left-column, .right-column, .single-column,
+  aside.right-column {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -27,7 +28,8 @@ main.paper {
     padding-right: 1rem;
   }
 
-  .right-column {
+  .right-column,
+  aside.right-column {
     grid-area: 2 / 6 / 8 / 8;
     margin-left: 0.5rem;
 

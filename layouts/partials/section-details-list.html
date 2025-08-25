@@ -2,8 +2,8 @@
 {{- $items := index $collection .Feature.feature -}}
 {{- if $items -}}
 {{ range $items }}
-<div class="item">
-	<h2 class="item-title">
+<article class="item">
+	<h3 class="item-title">
 		{{ $useFontAwesome := $.Params.itemTitle.useFontAwesome | default $.Params.useFontAwesome }}
 		{{ $noExternalIcon := not ($.Params.itemTitle.externalLinkIcon | default $.Params.externalLinkIcon) }}
 		{{ $titleText := or .title "Untitled Item" }}
@@ -17,7 +17,7 @@
 		{{- else -}}
 		{{ $titleText }}
 		{{- end -}}
-	</h2>
+	</h3>
 	<span>{{ if and .subtitle .date }}
 		{{- .subtitle | markdownify }} - {{ .date }}
 	{{- else if .subtitle }}
@@ -44,7 +44,7 @@
 		{{- end -}}
 	</ul>
 	{{ end }}
-</div>
+</article>
 {{ end }}
 {{- else -}}
 <div class="item">

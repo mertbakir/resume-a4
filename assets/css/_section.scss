@@ -1,11 +1,13 @@
-.section {
+.section,
+section.section {
   margin-bottom: 1.5rem;
 
   > *:last-child {
     margin-bottom: 0;
   }
 
-  .right-column & {
+  .right-column &,
+  aside.right-column & {
     margin-bottom: 1rem;
   }
 }
@@ -85,6 +87,7 @@
 
 main.paper .single-column,
 main.paper .right-column,
+main.paper aside.right-column,
 main.paper .left-column,
 .paper {
   .section-languages {
