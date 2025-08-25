@@ -1,0 +1,53 @@
+// Typography system using SCSS maps
+
+// Font sizes map
+$font-sizes: (
+  'xs': 0.8rem,
+  'sm': 0.88rem,
+  'base': 1rem,
+  'lg': 1.20rem,
+  'xl': 1.35rem,
+  'title': 4rem
+);
+
+// Line heights map
+$line-heights: (
+  'tight': 1.2,
+  'normal': 1.3,
+  'relaxed': 1.5
+);
+
+// Spacing scale for consistent margins/padding
+$spacing-scale: (
+  'xs': 0.1rem,
+  'sm': 0.2rem,
+  'base': 0.5rem,
+  'md': 0.75rem,
+  'lg': 1rem,
+  'xl': 1.5rem,
+  'xxl': 2.5rem
+);
+
+// Function to get font size
+@function font-size($size) {
+  @return map-get($font-sizes, $size);
+}
+
+// Function to get line height
+@function line-height($height) {
+  @return map-get($line-heights, $height);
+}
+
+// Function to get spacing value
+@function spacing($size) {
+  @return map-get($spacing-scale, $size);
+}
+
+// Typography mixin using the system
+@mixin text($size, $line-height: 'normal', $margin-bottom: null) {
+  font-size: font-size($size);
+  line-height: line-height($line-height);
+  @if $margin-bottom {
+    margin-bottom: spacing($margin-bottom);
+  }
+}

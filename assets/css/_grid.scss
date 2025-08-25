@@ -1,0 +1,21 @@
+// Grid layout system for main resume content
+main.paper {
+  margin-top: 2.5rem;
+  padding-top: 0;
+
+  .grid {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    grid-column-gap: 0;
+    grid-row-gap: 0;
+
+    .flex-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+}

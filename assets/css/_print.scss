@@ -17,9 +17,7 @@
     width: 210mm;
     height: 297mm;
     overflow: hidden;
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
+    @include box-shadow(none);
     page-break-after: always;
   }
 

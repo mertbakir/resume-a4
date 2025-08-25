@@ -1,0 +1,42 @@
+// Header styling for resume title and avatar
+main.paper header {
+  grid-area: 1 / 1 / 2 / 8;
+  border-bottom: $border-color 0.05rem solid;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: $font-1;
+    align-items: left;
+
+    h1 {
+      margin-bottom: spacing('base');
+      @include text('title', 'tight');
+      color: $text-color;
+      letter-spacing: 0.15rem;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin-bottom: spacing('sm');
+      @include text('base', 'tight');
+    }
+  }
+
+  .avatar {
+    display: block;
+    margin: 1rem auto;
+    padding: 1rem;
+    object-fit: cover;
+    height: 8.75rem;
+    @include border-radius(50%);
+  }
+
+  a i {
+    padding: 0;
+  }
+}

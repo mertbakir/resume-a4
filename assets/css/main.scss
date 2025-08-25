@@ -4,6 +4,8 @@ $text-color: #202020;
 $toprak: #b56b00;
 $turk: #E30A17;
 
+@import "typography";
+@import "mixins";
 @import "base";
 @import "redundant";
 @import "layout";

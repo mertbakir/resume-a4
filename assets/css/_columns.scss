@@ -1,0 +1,53 @@
+// Column layout styling for different resume layouts
+main.paper {
+  .left-column, .right-column, .single-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 0.75rem;
+
+    > *:first-child,
+    > *:first-child > *:first-child {
+      margin-top: 0;
+    }
+  }
+  
+  .single-column-no-header {
+    grid-area: 1 / 1 / 8 / 8;
+    margin-top: 2.5rem;
+  }
+
+  .single-column {
+    grid-area: 2 / 1 / 8 / 8;
+  }
+
+  .left-column {
+    grid-area: 2 / 1 / 8 / 6;
+    border-right: $border-color 0.05rem solid;
+    padding-right: 1rem;
+  }
+
+  .right-column {
+    grid-area: 2 / 6 / 8 / 8;
+    margin-left: 0.5rem;
+
+    li {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    h2 {
+      margin-bottom: spacing('sm');
+      @include text('base', 'tight');
+    }
+
+    h3 {
+      margin-bottom: spacing('xs');
+      @include text('xs', 'tight');
+    }
+
+    p {
+      @include text('xs', 'normal');
+    }
+  }
+}

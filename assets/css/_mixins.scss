@@ -1,0 +1,52 @@
+// SCSS Mixins for common patterns
+
+// Border radius with vendor prefixes
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  -o-border-radius: $radius;
+  border-radius: $radius;
+}
+
+// Box shadow with vendor prefixes
+@mixin box-shadow($shadow) {
+  -webkit-box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+
+// Typography mixin for consistent font sizing and spacing
+@mixin typography($size, $line-height: 1.5, $margin-bottom: 0) {
+  font-size: $size;
+  line-height: $line-height;
+  @if $margin-bottom > 0 {
+    margin-bottom: $margin-bottom;
+  }
+}
+
+// Flexbox center mixin
+@mixin flex-center($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: center;
+}
+
+// Grid area mixin for cleaner grid positioning
+@mixin grid-area($row-start, $col-start, $row-end, $col-end) {
+  grid-area: #{$row-start} / #{$col-start} / #{$row-end} / #{$col-end};
+}
+
+// Common spacing values as a mixin
+@mixin spacing($property, $size: 'medium') {
+  $spacing-values: (
+    'small': 0.2rem,
+    'medium': 0.5rem,
+    'large': 1rem,
+    'xl': 1.5rem,
+    'xxl': 2.5rem
+  );
+  
+  #{$property}: map-get($spacing-values, $size);
+}

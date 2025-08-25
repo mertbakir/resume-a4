@@ -1,0 +1,39 @@
+// Base paper styling and typography
+.paper {
+  position: relative;
+  margin: 0.5rem auto;
+  padding: 0.45in 0.5in;
+  width: 210mm;
+  height: 297mm;
+  background-color: #fff;
+  @include box-shadow(0.2rem 0.2rem 0.6rem #aaa);
+  box-sizing: border-box;
+
+  @include text('sm');
+
+  h1, h2, h3 {
+    line-height: line-height('tight');
+  }
+
+  h1 {
+    @include text('xl', 'tight', 'md');
+  }
+
+  h2 {
+    @include text('lg', 'tight', 'base');
+  }
+
+  h3 {
+    @include text('base', 'tight', 'sm');
+  }
+
+  p {
+    margin: spacing('base') 0;
+    @include text('sm', 'relaxed');
+    text-align: justify;
+  }
+
+  > *:first-child {
+    margin-top: 0;
+  }
+}
