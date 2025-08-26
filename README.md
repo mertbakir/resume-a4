@@ -25,13 +25,13 @@ I'll create a better guide explaining features and do proper versioning, just do
 
 ```
 cd themes
-git clone https://gitlab.com/mertbakir/resume-a4.git
+git clone https://github.com/mertbakir/resume-a4.git
 ```
 
 or add as a submodule
 
 ```
-git submodule add https://gitlab.com/mertbakir/resume-a4.git themes/resume-a4
+git submodule add https://github.com/mertbakir/resume-a4.git themes/resume-a4
 ```
 
 ## Start
