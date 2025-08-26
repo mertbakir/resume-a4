@@ -33,6 +33,9 @@ I'll create a better guide explaining features and do proper versioning, just do
 # Create a Hugo site
 hugo new site my-resume && cd my-resume
 
+# Delete default hugo.toml
+rm hugo.toml
+
 # Add the theme (choose one)
 git clone https://github.com/mertbakir/resume-a4.git themes/resume-a4
 # OR as submodule
@@ -199,6 +202,11 @@ Check that `theme: "resume-a4"` is set in your config and the theme is in `/them
 
 - **How do I update to the latest version?**  
 Run `git pull` in your theme directory, then delete your `/resources` folder and run `hugo server`.
+
+- **My hugo project doesn't seem to recognize the theme.**  
+Make sure the theme is in `themes/resume-a4` directory and in your config file theme is set correctly. `theme: resume-a4`.  
+And make sure you have only one config file. Hugo generates `hugo.toml` by default when you call `hugo new site`.
+
 
 - **There is a bug.**  
 I would be happy if you submit a pull request with a fix.
