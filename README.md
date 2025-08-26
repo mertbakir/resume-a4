@@ -1,79 +1,209 @@
-# Announcement 2024-09-12
+# Resume-A4
 
-This repo was originally hosted on [Gitlab](https://gitlab.com/mertbakir/resume-a4).
-Github version is ahead of the gitlab version and introduces very small breaking changes on the config file. If you are an old user, just update your config file and you're good to go. 
+A modern, responsive, print-friendly Hugo theme for creating professional A4-sized resumes.  
+Write your resume content in YAML, track changes with git, and generate a clean site you can deploy (e.g., GitHub Pages), print, or export as PDF.
+
+
+## 📢 Announcements
+
+### 2025-08-26
+Cleaning up the codebase and improving documentation. **No breaking changes.**
+
+### 2024-09-12
+
+This repo was originally hosted on [GitLab](https://gitlab.com/mertbakir/resume-a4).
+The GitHub version is ahead of the GitLab version and introduces very small breaking changes to the config file. If you're an existing user, just update your config file and you're all set.
 
 I'll create a better guide explaining features and do proper versioning, just don't know when.
 
-# Features
+## ✨ Features
 
-* Simple, easy to use, single or multi page, A4-sized Resume generator.
-* Print friendly, just use your browser or save as PDF.
-* Write your resume in yaml. All content stored in data files.
-* Add/Remove sections order change section orders by editing `config.yaml`.
-* Section names are configurable in `config.yaml`. So, you can write in any language you want.
+- A4-sized resume generator with print-friendly PDF export  
+- YAML-based content management  
+- Flexible section (feature) ordering and customization  
+- Multiple page support  
+- Widget system: `details-list`, `word-list`  
+- APA/IEEE/TitleFirst citation formats for academic work  
 
-[Here is a blog post](https://mertbakir.gitlab.io/projects/resume-a4/) about this project.
+## 🚀 Quick Start
 
-# How To Use
+### Installation
 
-## Download
+```bash
+# Create a Hugo site
+hugo new site my-resume && cd my-resume
 
-1. Create a hugo project.
-2. Go to themes folder.
-3. Clone this theme.
+# Add the theme (choose one)
+git clone https://github.com/mertbakir/resume-a4.git themes/resume-a4
+# OR as submodule
+git submodule add https://github.com/mertbakir/resume-a4.git themes/resume-a4
 
+# Copy example config and data
+cp themes/resume-a4/exampleSite/config.yaml .
+cp -r themes/resume-a4/exampleSite/data .
+
+# Start server for preview
+hugo server
 ```
-cd themes
-git clone https://gitlab.com/mertbakir/resume-a4.git
+
+### Usage
+
+1. Edit `config.yaml` to configure sections and layout. 
+2. Update YAML files in the `data/` folder with your resume content.
+3. Optional: Copy `themes/resume-a4/exampleSite/assets/` for CSS customization.
+
+## 🧱Details
+
+The theme builds the **main column**, **side column**, **header**, and **additional pages** from *features* (sections).
+- For historical reasons we used the term feature instead of section; in this document I use the two words interchangeably.
+- Each page defines a list of `features`, and optionally a `header` and a `side` column for a two-column layout.
+- The two-column layout is **optional**; you can disable the side column.
+- The render order of features is the order listed in `config.yaml`.
+
+**Core Features**: `about, experience, education, languages, publications`.  
+**User Defined Features**: Other sections you define, e.g. `skills`, `certificates`, `projects`.
+
+### Common Configuration Keys
+
+- **`feature`**: Name of the feature.   
+- **`title`**: String rendered as the header of the element.   
+  Useful when you want to create resume in another language. Example: 'Experience' can be overwritten with 'Deneyim'.  
+  Title can be disabled by using an empty string if you want to save space.
+- **`collection`**: The base name of the YAML file containing the data. Defaults to 'features' when not specified.
+- **`widget`**: Defines how section content will be rendered for user-defined-features. Core features have their own template/layout. One of: `details-list` (default), `word-list`.
+- **`style`**: Rendering style for `word-list` widget. One of: `list`, `compact`, or `title-list`.
+
+
+### Widget Types
+
+#### 1. details-list
+
+**Data Structure:** Expects data in this format (in YAML file):
+```yaml
+- title: "Senior Developer"           # The title string
+  subtitle: "Tech Company Inc."       # String rendered under title (company, institution, etc.)
+  date: "2020 - Present"              # Date string (when certificate was given, employment period, etc.)
+  details: |                          # Text in markdown format
+    - Led development of microservices architecture
+    - Mentored junior developers  
+    - Improved system performance by 40%
+  link: "https://company.com"         # URL where the title will link to (optional)
+  links:                              # List of links rendered as bullet list below details
+    - prefix: "Company"               # String before the link
+      title: "Website"                # String inside the link
+      url: "https://company.com"      # Destination of the link
+      icon: "fas fa-cloud"            # Icon string (Font Awesome) rendered after title
 ```
 
-or add as a submodule
+#### 2. word-list
 
+Handy widget for skills, interests, languages, and other list-based content.
+
+**Configuration:**
+```yaml
+- feature: skills
+  title: Technical Skills
+  widget: word-list
+  style: compact  # Required: list, compact, or title-list
 ```
-git submodule add https://gitlab.com/mertbakir/resume-a4.git themes/resume-a4
+
+**Style Options:**
+- **`list`**: Simple bulleted list
+- **`compact`**: Comma-separated inline format  
+- **`title-list`**: Grouped lists with titles
+
+**Data Structure:** Expects data in this format (in YAML file):
+
+**For `list` or `compact` styles:**
+```yaml
+skills:
+  - "JavaScript"
+  - "Python" 
+  - "React"
+  - "Node.js"
 ```
 
-## Start
-
-1. Copy `config.yaml` from `exampleSite` to the root directory of your hugo project.
-2. Open `config.yaml` and add your relevant information.
-3. Copy `data` folder from `exampleSite` to the root directory of your hugo project. All you need is that folder.
-4. Create your resume in yaml files.
-
-## Config File
-
-* You can add/remove sections.
-* Add multiple pages as many as you like. (_still, let's not forget the aim here. a resume should be precise. I don't think a recruiter will scroll down on it._)
-* Order of the "features" are important in the config file. 
+**For `title-list` style:**
+```yaml
+skill_groups:
+  - groupName: "Frontend"      # Title of the group
+    list:                      # List of strings rendered under the group
+      - "React"
+      - "Vue.js"
+  - groupName: "Backend"
+    list:
+      - "Node.js"
+      - "Python"
+```
 
 ### Custom CSS
 
-Copy the ```\assets``` folder under the ```exampleSite``` directory if you like to make simple modifications.
-### Avatar
+Copy the `assets/` folder from `exampleSite/` to your site root to customize styles:
 
-Set avatar link in `config.yaml`, you may keep the image under `static` folder. You can set it as ```false``` if you don't want to add a picture.
+```
+your-site/
+├── assets/
+│   └── css/
+│       └── custom.scss
+├── config.yaml
+└── data/
+```
 
-### Publications
+To show URLs when printing, add to your custom CSS:
 
-You can change `style` of the `publications` feature in the config file. There are options for APA and IEEE standards. Report me on gitlab or send a merge requests if standarts are erroneous. I'm no expert on citation standarts.
+```scss
+@media print {
+  a[href]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
+}
+```
 
-## Print | Save As PDF
+## ⁉️FAQ
 
-There is a snippet in the ```exampleSite\assets\custom.scss``` file for printing the href attribute. It's not included as default. Because "save as pdf" is way more common usage than a hard copy. Also, I wouldn't prefer printing a long url on a hard copy.
+- **How do I create a single-page resume?**  
+Remove the second page from your `config.yaml` - just keep one page with `header: true`.
 
-If you don't like the result of "save as pdf" in Mozilla Firefox, try Chrome or a Chromium-based browser. Probably, because Firefox doesn't support [this](https://developer.mozilla.org/en-US/docs/Web/CSS/%40page/size).
+- **How do I add a profile picture?**  
+Set `header.avatar: "your-photo.jpg"` in config and place the image in your `/static` folder.
 
-# License
+- **Can I put contact info in the sidebar?**  
+Yes, set `header.contactOnSide: true` (only works when `avatar: false`).
 
-This project is open-sourced and licensed under the terms of the MIT license. I would be happy though, if you give attribution. <3
+- **How do I change section order?**  
+Rearrange the features list in your `pages` configuration - sections render in the order listed.
 
-> _I'm open to suggestions and contributions._
+- **How do I hide sections I don't need?**  
+Simply remove any feature you don't want from the `pages` configuration, in `config.yaml`.
 
-# My Work Flow
+- **How do I add custom sections?**  
+Create a new YAML file in `/data` and reference it in your config with the same name, or just add a new section in `features.yaml`.  
+Review the expected data structure in [Widget Types](#widget-types) above.
 
-1. Make changes.
-2. Delete `resources` folder in main project.
-2. Build your hugo site using the theme. `hugo server`
-3. Copy `resources` folder from main project to theme folder `themes\resume-A4\resources`
-4. `git commit` and `git push`.
+- **Can I use markdown in descriptions?**  
+Yes, the `details` field in most widgets supports full markdown formatting.
+
+- **How do I add external links?**  
+Use the `links` array in your data files with `url` and `text` properties.
+
+- **How do I customize colors and fonts?**  
+Copy the `/assets` folder from `exampleSite` to your site root and modify the SCSS files.
+
+- **Can I show URLs when printing?**  
+Yes, uncomment `print_urls.scss` in your config's CSS section.
+
+- **The theme isn't loading - what's wrong?**  
+Check that `theme: "resume-a4"` is set in your config and the theme is in `/themes/resume-a4`.
+
+- **How do I update to the latest version?**  
+Run `git pull` in your theme directory, then delete your `/resources` folder and run `hugo server`.
+
+- **There is a bug.**  
+I would be happy if you submit a pull request with a fix.
+
+---
+
+- See the [Example Site](./exampleSite/) for working setups.  
+- Open an [Issue](https://github.com/mertbakir/resume-a4/issues) for support.

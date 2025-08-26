@@ -1,129 +1,178 @@
-baseURL: "/"
-languageCode: "en-us"
-title: "Resume | MERT BAKIR"
-disableKinds: ["taxonomy", "term", "page", "section", "RSS", "sitemap", "robotsTXT", "404"]
-theme: "resume-a4"
+# ==========================================
+# Resume A4 Theme Configuration
+# ==========================================
+# Complete configuration guide: https://github.com/mertbakir/resume-a4
 
-# Construct main column, side column and additional page from features
-# Every column and page may include any features. Some features are
-# created using generic widgets and you can add easily new features,
-# as long as an existing widget can render it as you like.
+# Basic Hugo Configuration
+baseURL: /                  # https://mertbakir.gitlab.io/resume
+title: YOUR NAME | Resume   # Title of the web page
+languageCode: en-us
+disableKinds: [taxonomy, term, page, section, RSS, sitemap, robotsTXT, '404']
+theme: resume-a4
+
+# ==========================================
+# QUICK START GUIDE
+# ==========================================
+# 1. Replace "YOUR NAME" above with your actual name
+# 2. Update the data files in the /data folder with your information
+# 3. Customize the sections below to match your needs
+# 4. Run `hugo server` to preview your resume
+
+# ==========================================
+# THEME ARCHITECTURE
+# ==========================================
+# The theme constructs main column, side column and additional pages from features.
+# Every column and page may include any features.
+# Specialized templates: about, education, experience, publications, languages. 
+#   Other features (sections) are considered as user-defined-feature (e.g. skills, projects, certificates)
+#   and only those user-defined ones support widgets. Widgets determine how the content is rendered.
+# Available widgets: details-list (default), word-list  
+# 
+# For detailed configuration guide see: CONFIGURATION.md
 #
-# Common keys:
-#   feature: name of the feature. For generic features, this is also the root key in the yaml file.
-#   title: string rendered as the header of the element. Can be disabled with an empty string.
-#   collection: the base name of the yaml file containing the data. Defaults to "features".
-#   widget: `layout/partials/section-<widget>.html` used to render this element.
-#
-# Common widgets:
-#
-#   details-list:
-#     Used by default, if section-<feature>.html doesn't exists.
-#
-#     Expects data in format (in yaml file):
-#       title: the title string
-#       subtitle: string rendered under title. E.g., company for projects, certificate authority etc.
-#       date: date string, e.g., when a certificate was given
-#       details: a text in markdown.
-#       link: url where the title will link to
-#       links: list of links rendered as a bullet list below details
-#         prefix: a string before the link
-#         title: a string inside the link
-#         url: the destination of the link
-#         icon: the icon string, e.g., "fas fa-cloud". rendered inside link and after title.
-#
-#   word-list:
-#     Handy for skills and interests etc.
-#
-#     Additional keys:
-#       style: Rendering style for word list. One of: list, compact, or title-list
-#
-#     Expects data in format (in yaml file):
-#       A list of strings, if style is "list", or
-#
-#       A list of:
-#         groupName: title of the group
-#         list: list of strings rendered under the group
+# ==========================================
+# DATA FILES
+# ==========================================
+# Your resume content is stored in YAML files in the /data folder:
+#   - features.yaml     → Contact info, and other user defined sections
+#   - experience.yaml   → Work experience and career history
+#   - education.yaml    → Academic background and degrees
+#   - projects.yaml     → Personal and professional projects
+#   - publications.yaml → Academic publications and papers
+
+# ==========================================
+# THEME CONFIGURATION
+# ==========================================
 
 params:
-  useFontAwesome: true # Disables fontawesome completely. Lower true values won't turn it on.
-  externalLinkIcon: true
-  css:
-    - custom.scss
-#   - print_urls.scss
+  # ========================================
+  # Global Settings
+  # ========================================
+  useFontAwesome: true          # Enable Font Awesome icons throughout the theme
+  externalLinkIcon: true        # Show icons for external links
+  
+  # Custom CSS Files (optional)
+  # css:
+  # - custom.scss               # Your custom styles - copy assets/ folder from exampleSite to customize
+  # - print_urls.scss           # Uncomment to show URLs when printing
+  
+  # ========================================
+  # Header Configuration
+  # ========================================
   header:
-    useFontAwesome: true
-    contactOnSide: false  # true will put, contact and links on the right side. if avatar is set, this will always act like false.
-    avatar: false # avatar.jpg
-    contact: true
-    tagline: true
-    links: false
+    useFontAwesome: true        # Enable icons in header
+    contactOnSide: false        # true = contact info on right side (ignored if avatar is enabled)
+    avatar: false               # Set to filename (e.g., "avatar.jpg") to show profile picture from /static folder
+    contact: true               # Show contact information in header
+    tagline: true               # Show professional tagline/summary
+    links: false                # Show social/professional links in header
+  # ========================================
+  # PAGE LAYOUT CONFIGURATION
+  # ========================================
+  # Design your resume layout with multiple pages and flexible sections
+  
   pages:
-    - header: true
-      side:
-      - feature: languages
-      - feature: skills
-        title: Technical Skills
-        widget: word-list
-        style: compact # list, compact, title-list
-      - feature: education
-      - feature: interests
-        widget: word-list
-        style: list
+    # ========================================
+    # PAGE 1: Main Resume Page
+    # ========================================
+    - header: true                  # Show header with name, contact info, etc.
+      
+      # SIDE COLUMN SECTIONS
+      side:                         # Two column layout can be disabled, by setting this to false.
+      - feature: education          # Education history from data/education.yaml
+      - feature: languages          # Language skills from data/features.yaml
+      - feature: skills             # Technical skills  
+        title: Technical Skills     # Custom section title (overrides default)
+        widget: word-list           # How to display: word-list widget
+        style: compact              # Style: list, compact, or title-list
+        
+      - feature: interests          # Personal interests
+        widget: word-list           # Display as word list
+        style: list                 # Style: bulleted list format
+        
+      # MAIN CONTENT SECTIONS (LEFT COLUMN)
       features:
-        - feature: about
-          title: About Me
-        - feature: experience
-    - header: false
-      side: false
+        - feature: about            # Professional summary/about section
+          title: About Me           # Section title
+          
+        - feature: experience       # Work experience from data/experience.yaml
+
+    # ========================================  
+    # PAGE 2: Additional Information (Optional)
+    # ========================================
+    - header: true                  # Repeat header on second page
+      side: false                   # Show sidebar on second page
+      
       features:
         - feature: experience
-          title: Experience (Cont.) # Leave titles empty if you want to remove them.
-        - feature: projects
-          collection: projects
-        - feature: publications
-          title: Academic Studies # You can rename sections.
-          style: IEEE
-          # IEEE, APA, else
-          # TitleFirst.Bold.Author.MultiLine 
-          # (TitleFirst is mandatory others are optional, try TitleFirst or TitleFirst.Bold )
-        - feature: awards
-        - feature: certificates
-          title: Certifications
-        - feature: interests
+          title: Experience (Cont.) # Continue experience from page 1
+          
+        - feature: projects         # Projects from data/projects.yaml
+          collection: projects      # Specify data source (defaults to feature name)
+          
+        - feature: publications     # Academic publications
+          title: Academic Studies   # Rename section title
+          style: IEEE               # Style: IEEE, APA, or TitleFirst[.Bold][.Author][.MultiLine]
+                                    #   keys within brackets are optional. 
+                                    #   Example: TitleFirst, TitleFirst.Bold, TitleFirst.MultiLine, TitleFirst.Bold.Author.MultiLine
+          
+        - feature: awards           # Awards and honors
+        
+        - feature: certificates     # Professional certifications  
+          title: Certifications     # Custom section title
+          
+        - feature: interests        # You can repeat a section.
           widget: word-list
           style: list
+  # ========================================
+  # SECTION-SPECIFIC SETTINGS
+  # ========================================
+  
+  # Experience Section Settings
   experience:
-    grouped: false
+    grouped: false              # false = chronological, true = group by company
     tools: 
-      show: false
-      title: Technologies
+      show: false               # Show technology tags for each role
+      title: Technologies       # Title for technology tags
+      
+  # Education Section Settings  
   education:
-    useFontAwesome: true
-    externalLinkIcon: false
+    useFontAwesome: true        # Show icons for education entries
+    externalLinkIcon: false     # Hide external link icons
     location:
-      show: false
+      show: false               # Show/hide location information
     details:
-      show: false
-    namePrimary: false
+      show: false               # Show/hide detailed descriptions
+    namePrimary: false          # true = institution first, false = degree first
+    
+  # Publications Section Settings
   publications:
-    useFontAwesome: false
-    externalLinkIcon: false
+    useFontAwesome: false       # Disable icons for publications
+    externalLinkIcon: false     # Hide external link icons
+    
+  # General Item Title Settings
   itemTitle:
-    useFontAwesome: false
-    externalLinkIcon: false
+    useFontAwesome: false       # Icons for item titles
+    externalLinkIcon: false     # External link icons for titles
         
+  # ========================================
+  # FOOTER CONFIGURATION
+  # ========================================
   footer:
-    show: true
-    credits: true
-    footnote: >-
-      You can print this resume in A4 size or save as pdf. | Updated at 2020-09-01.
+    show: true                  # Display footer on all pages
+    credits: true               # Show theme credits
+    footnote: >-                # Custom footer text (supports markdown)
+      You can print this resume in A4 size or save as PDF. | Updated at 2025-08-26.
+      
+    # Footer Links (social media, websites, etc.)
     links:
-      - prefix: Contact me on
-        title: Linkedin
-        url: 'https://linkedin.com/in/mertbakir/'
-        icon: fab fa-linkedin
-      - prefix: Check out my
-        title: Website
-        url: 'https://mertbakir.gitlab.io/about/'
-        icon: fas fa-globe
+      - prefix: Contact me on   # Text before link
+        title: LinkedIn         # Link text
+        url: 'https://linkedin.com/in/yourprofile/'  # Replace with your LinkedIn URL
+        icon: fab fa-linkedin   # Font Awesome icon
+        
+      - prefix: Check out my    # Text before link  
+        title: Website          # Link text
+        url: 'https://yourwebsite.com/'              # Replace with your website URL
+        icon: fas fa-globe      # Font Awesome icon
+
