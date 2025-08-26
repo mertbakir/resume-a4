@@ -1,36 +1,40 @@
-- company: Company 1
+- company: TechCorp Solutions
   roles:
-    - role: Data Scientist
+    - role: Senior Software Engineer
       details: |
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare sollicitudin fringilla.
-        Aenean nec volutpat arcu. Maecenas quis tempus risus. Curabitur condimentum ligula in erat pharetra porta. 
-        Nam suscipit nisi a bibendum lacinia. Donec aliquet, nibh dignissim placerat efficit
-      date: 10.2020 -  Present
+        Lead development of microservices architecture serving 2M+ daily active users.
+        Designed and implemented CI/CD pipelines reducing deployment time by 75%.
+        Mentored team of 5 junior developers and established code review standards.
+        Migrated legacy monolith to cloud-native architecture using Kubernetes and Docker.
+      date: 03.2021 - Present
 
-- company: Company 2
+- company: DataFlow Systems
   page: 1
   roles: 
-    - role: Senior Software Developer
-      tools: SQL, Flink, Kafka
+    - role: Full Stack Developer
+      tools: React, Node.js, PostgreSQL, AWS
       details: |
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare sollicitudin fringilla.
-        Aenean nec volutpat arcu. Maecenas quis tempus risus.
-      date: 06.2019 - 10.2020
+        Developed customer-facing web applications using React and Node.js stack.
+        Optimized database queries resulting in 40% performance improvement.
+        Collaborated with UX team to implement responsive design patterns.
+      date: 08.2019 - 03.2021
     
-    - role: Junior Software Developer
-      tools: HTML, PHP, CSS
-      date: 10.2018 - 06.2019
+    - role: Junior Frontend Developer
+      tools: JavaScript, HTML5, CSS3, Vue.js
+      date: 01.2018 - 08.2019
       details: |
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare sollicitudin fringilla.
-        Aenean nec volutpat arcu. Maecenas quis tempus risus.
+        Built interactive user interfaces for internal dashboard applications.
+        Participated in Agile development process and daily stand-ups.
+        Implemented accessibility standards achieving WCAG 2.1 AA compliance.
 
-- company: Company 1
+- company: StartupTech Inc.
   page: 2
   roles:
-    - role: Junior Software Developer
-      tools: C#, Python, Postgresql
+    - role: Software Developer Intern
+      tools: Python, Flask, MongoDB, Git
       details: |
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare sollicitudin fringilla.
-        Aenean nec volutpat arcu. Maecenas quis tempus risus. Curabitur condimentum ligula in erat pharetra porta. 
-        Nam suscipit nisi a bibendum lacinia. Donec aliquet, nibh dignissim placerat efficit
-      date: 2017 - 2018
+        Contributed to backend API development for mobile application serving 50k+ users.
+        Implemented automated testing suite achieving 85% code coverage.
+        Participated in code reviews and followed test-driven development practices.
+        Collaborated with cross-functional team using Scrum methodology.
+      date: 06.2017 - 12.2017

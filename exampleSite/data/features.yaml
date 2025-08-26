@@ -1,84 +1,92 @@
 about:
-  name: Mert Bakır
-  tagline: Head of Busywork
-  phone: "5070*4****"        # Optional
-  email: yourmail@yourdomain # Optional
-  linkedin: yourlinkedinname # Optional
+  name: Jane Smith
+  tagline: Senior Software Engineer
+  phone: "+1 (555) 123-4567"        # Optional
+  email: jane.smith@email.com       # Optional
+  linkedin: jane-smith              # Optional
   links:
     # Add any link as you like.
-    - title: /in/mertbakir
-      url: https://tr.linkedin.com/in/mertbakir
+    - title: /in/jane-smith
+      url: https://linkedin.com/in/jane-smith
       icon: fab fa-linkedin
-    - title: mertbakir
-      url: https://gitlab.com/mertbakir/
-      icon: fab fa-gitlab
-    - title: mertbakir
-      url: https://github.com/mertbakir
+    - title: jane-smith
+      url: https://github.com/jane-smith
       icon: fab fa-github
+    - title: Portfolio
+      url: https://janesmith.dev
+      icon: fas fa-globe
   details: |
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare sollicitudin fringilla.
-    Aenean nec volutpat arcu. Maecenas quis tempus risus. Curabitur condimentum ligula in erat pharetra porta.
+    Experienced software engineer with 8+ years developing scalable web applications and cloud infrastructure.
+    Passionate about clean code, system architecture, and mentoring junior developers.
 
-    Nam suscipit nisi a bibendum lacinia.
+    Proven track record of leading cross-functional teams and delivering high-impact solutions.
 
 
 skills:
-  - groupName: Databases & Visualization
+  - groupName: Frontend Technologies
     list:
-      - Grafana - Kibana - PowerBI
-      - InfluxDB - TICK Stack
+      - React - Vue.js - Angular
+      - TypeScript - JavaScript - HTML5/CSS3
 
-  - groupName: Data Analysis & Analytics
+  - groupName: Backend & Infrastructure
     list:
-      - Python - R - SQL
-      - Excel - Minitab - SPSS
-      - GAMS - PuLP - OR Tools
+      - Node.js - Python - Java
+      - AWS - Docker - Kubernetes
+      - PostgreSQL - MongoDB - Redis
 
-  - groupName: Programming & Systems
+  - groupName: Tools & Practices
     list:
-      - C# - Git - Docker - NGINX
-      - Linux - CentOS RHEL
+      - Git - CI/CD - Terraform
+      - Jest - Cypress - Jenkins
 
 interests:
-  - Data Science
-  - AI Applications
-  - Optimization Problems
+  - Open Source Contributions
+  - Cloud Architecture
+  - Machine Learning
+  - Tech Mentoring
 
 languages:
-  - name: Turkish
+  - name: English
     level: Native
 
-  - name: English
-    level: Professional
+  - name: Spanish
+    level: Conversational
     certificates:
-      - "YDS: 86.25 - 2018"
-      - "TOEFL: 109 - 2021"
+      - "DELE B2 - 2020"
+
+  - name: French
+    level: Basic
 
 # This will use the default widget: "details-list"
 awards:
-  - title: "Tübitak - Graduation Project"
-    date: "2017"
-    subtitle: "A Decision Support System for 3D Cutting Problem"
-    #details: |
-    #   - add more here if you like to.
-    #   - or just comment out/delete the field.
+  - title: "Excellence in Software Development"
+    date: "2023"
+    subtitle: "TechCorp Innovation Awards"
+    details: |
+      Recognized for outstanding contribution to company-wide code quality initiatives
+      and successful migration of legacy systems to cloud architecture.
     links:
-      - title: example
-        url: https://mertbakir.gitlab.io
-        icon: fas fa-bolt
-        prefix: "This is an " # use quotation marks if you want to pass the tailing space.
-      - title: second link.
-        url: https://esdfdsfdsf
-        icon: "-" # you can get rid of the icon by entering dummy text
-        prefix: "omg"
+      - title: Award Details
+        url: https://example.com/awards/2023
+        icon: fas fa-trophy
+        prefix: "View "
+      - title: Press Release
+        url: https://example.com/news/innovation-awards
+        icon: fas fa-newspaper
+        prefix: "Read "
 
 certificates:
-  - title: "Supervised Learning: Regression"
-    subtitle: Coursera
-    date: "2020"
-    link: https://xkcd.com/605/ # This link will be on title level.
+  - title: "AWS Solutions Architect Professional"
+    subtitle: Amazon Web Services
+    date: "2023"
+    link: https://aws.amazon.com/certification/ # This link will be on title level.
 
-  - title: "Supervised Learning: Classification"
-    subtitle: Coursera
-    date: "2020"
-    link: https://xkcd.com/388/
+  - title: "Certified Kubernetes Administrator"
+    subtitle: Cloud Native Computing Foundation
+    date: "2022"
+    link: https://www.cncf.io/certification/cka/
+
+  - title: "Google Cloud Professional Developer"
+    subtitle: Google Cloud Platform
+    date: "2021"
+    link: https://cloud.google.com/certification/

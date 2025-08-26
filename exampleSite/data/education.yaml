@@ -1,15 +1,19 @@
-- name: Msc. Industrial Engineering
-  university: Yildiz Technical University
-  location: Istanbul, TR
-  more: with Thesis # Optional field, if you want to add a non-standard line.
-  link: https://... # Optional field, include a link to your project.
-  date: 2019- 2021
-  gpa: 3.71 / 4.00
+- name: Master of Science in Computer Science
+  university: State University
+  location: San Francisco, CA
+  more: Specialization in Distributed Systems # Optional field, if you want to add a non-standard line.
+  link: https://example.com/thesis # Optional field, include a link to your project.
+  date: 2019 - 2021
+  gpa: 3.85 / 4.00
   details: >
-    Include details if you like to... 
+    Thesis: "Scalable Microservices Architecture for Real-time Data Processing"
+    Relevant Coursework: Advanced Algorithms, Database Systems, Software Architecture 
 
-- name: Bsc. Industrial Engineering
-  university: Gazi University
-  location: Ankara, TR
-  date: 2013 - 2017
-  gpa : 3.35 / 4.00
+- name: Bachelor of Science in Computer Engineering
+  university: Tech Institute
+  location: Austin, TX
+  date: 2015 - 2019
+  gpa: 3.42 / 4.00
+  details: >
+    Dean's List: Fall 2018, Spring 2019
+    Relevant Coursework: Data Structures, Operating Systems, Web Development

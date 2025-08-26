@@ -1,14 +1,30 @@
 - authors:
-    - last_name: Dantzing
-      first_name: George
-    - last_name: Sunstrider
-      middle_name: "Felo'melorn"
-      first_name: Kael'thas
-  date: 2006
-  title: "Additive Outlier Detection Via Extreme-Value Theory"
-  journal: Journal of Time Series Analysis
-  vol: 27
-  issue: 5
-  page: "29-34"
-  link: https://example.com
-  doi: 10.1000/182
+    - last_name: Smith
+      first_name: Jane
+    - last_name: Johnson
+      first_name: Michael
+      middle_name: R.
+    - last_name: Davis
+      first_name: Sarah
+  date: 2023
+  title: "Scalable Microservices Architecture for High-Throughput Systems"
+  journal: IEEE Transactions on Software Engineering
+  vol: 49
+  issue: 8
+  page: "1234-1248"
+  link: https://ieeexplore.ieee.org/document/example
+  doi: 10.1109/TSE.2023.1234567
+
+- authors:
+    - last_name: Smith
+      first_name: Jane
+    - last_name: Wilson
+      first_name: David
+  date: 2022
+  title: "Performance Optimization Techniques in Cloud-Native Applications"
+  journal: ACM Computing Surveys
+  vol: 55
+  issue: 3
+  page: "1-35"
+  link: https://dl.acm.org/doi/example
+  doi: 10.1145/3487890.1234567

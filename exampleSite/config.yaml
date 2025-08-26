@@ -115,7 +115,9 @@ params:
           style: IEEE               # Style: IEEE, APA, or TitleFirst[.Bold][.Author][.MultiLine]
                                     #   keys within brackets are optional. 
                                     #   Example: TitleFirst, TitleFirst.Bold, TitleFirst.MultiLine, TitleFirst.Bold.Author.MultiLine
-          
+    - header: true
+      side: false
+      features:
         - feature: awards           # Awards and honors
         
         - feature: certificates     # Professional certifications  

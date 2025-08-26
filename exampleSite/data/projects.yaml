@@ -1,17 +1,36 @@
 projects:
-- title: "Simulated Annealing for Traveling Salesman Problem"
-  subtitle: "Some University"
-  date: "2016"
+- title: "E-Commerce Platform with Microservices"
+  subtitle: "Personal Project"
+  date: "2023"
   details: |
-    Lorem ipsum dolor sit amet
+    Full-stack e-commerce application built with React, Node.js, and PostgreSQL.
+    Implemented user authentication, payment processing, and order management.
+    Deployed using Docker containers on AWS ECS with load balancing.
 
-- title: "Resume - A4"
-  subtitle: "mertbakir.gitlab.io/resume"
-  link: "https://gitlab.com/mertbakir/resume-a4"
-  date: "2020"
+- title: "Real-time Chat Application"
+  subtitle: "Open Source Project"
+  link: "https://github.com/jane-smith/chat-app"
+  date: "2022"
   details: |
-    Bring CI/CD to your resume using YAML and Git."
+    WebSocket-based chat application supporting real-time messaging and file sharing.
+    Built with Socket.io, Express.js, and MongoDB. Includes user authentication and message history.
   links:
-  - title: Available in GitLab
-    url: https://gitlab.com/mertbakir/resume-a4
-    icon: fab fa-gitlab
+  - title: View on GitHub
+    url: https://github.com/jane-smith/chat-app
+    icon: fab fa-github
+  - title: Live Demo
+    url: https://chat-demo.janesmith.dev
+    icon: fas fa-external-link-alt
+
+- title: "Task Management API"
+  subtitle: "REST API with GraphQL"
+  link: "https://github.com/jane-smith/task-api"
+  date: "2021"
+  details: |
+    RESTful API with GraphQL endpoint for task management system.
+    Features JWT authentication, role-based permissions, and automated testing.
+    Deployed on Heroku with PostgreSQL database.
+  links:
+  - title: API Documentation
+    url: https://task-api-docs.janesmith.dev
+    icon: fas fa-book
