@@ -3,27 +3,19 @@
 A modern, responsive, print-friendly Hugo theme for creating professional A4-sized resumes.  
 Write your resume content in YAML, track changes with git, and generate a clean site you can deploy (e.g., GitHub Pages), print, or export as PDF.
 
-
-## 📢 Announcements
-
-### 2025-08-26
-Cleaning up the codebase and improving documentation. **No breaking changes.**
-
-### 2024-09-12
-
-This repo was originally hosted on [GitLab](https://gitlab.com/mertbakir/resume-a4).
-The GitHub version is ahead of the GitLab version and introduces very small breaking changes to the config file. If you're an existing user, just update your config file and you're all set.
-
-I'll create a better guide explaining features and do proper versioning, just don't know when.
-
 ## ✨ Features
 
-- A4-sized resume generator with print-friendly PDF export  
-- YAML-based content management  
-- Flexible section (feature) ordering and customization  
-- Multiple page support  
-- Widget system: `details-list`, `word-list`  
-- APA/IEEE/TitleFirst citation formats for academic work  
+- A4-sized resume pages, deploy as a static site.
+- Define your resume in yaml files and track with git. 
+- Improved documentation and example site.
+- Customizations options:
+  - multiple page support
+  - customize sections, their titles, order and placement as you like
+  - widget & style types for user defined sections
+  - citation formats for academic work
+  - enable/disable 2 column layout
+  - enable/disable page header
+  - many more you can find in the `config.yaml`
 
 ## 🚀 Quick Start
 
