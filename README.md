@@ -5,17 +5,16 @@ Write your resume content in YAML, track changes with git, and generate a clean 
 
 ## ✨ Features
 
-- A4-sized resume pages, deploy as a static site.
-- Define your resume in yaml files and track with git. 
+- A4-sized resume pages ready for print, PDF, and static site deployment.
+- Define your resume in YAML to easily manage content and track changes with git.
 - Improved documentation and example site.
 - Customizations options:
-  - multiple page support
-  - customize sections, their titles, order and placement as you like
-  - widget & style types for user defined sections
-  - citation formats for academic work
-  - enable/disable 2 column layout
-  - enable/disable page header
-  - many more you can find in the `config.yaml`
+  - Freely customize section content, titles, order and placement.
+  - Choose from multiple widgets and styles for user-defined sections.
+  - Built-in citation formats for academic work.
+  - Enable/disable two-column layout and page headers.
+  - Add as many pages as you like, remember though you should keep it simple.
+  - Explore many more options in `config.yaml`.
 
 ## 🚀 Quick Start
 
