@@ -130,6 +130,17 @@ skill_groups:
       - "Python"
 ```
 
+### Favicon
+
+The theme comes with a default set of favicons. To use your own, create a `static/favicon` directory in the root of your project and place your files there. They will automatically overwrite the theme's defaults.
+
+Required files for a complete set:
+- `favicon.ico`
+- `favicon-16x16.png`
+- `favicon-32x32.png`
+- `apple-touch-icon.png`
+- `site.webmanifest`
+
 ### Custom CSS
 
 Copy the `assets/` folder from `exampleSite/` to your site root to customize styles:
