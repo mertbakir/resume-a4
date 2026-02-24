@@ -3,6 +3,12 @@
   padding: 0;
 }
 
+html {
+  // Firefox computes body text (0.88rem) at 12.32px and fits the A4 page.
+  // Setting 14px (0.88 × 14 = 12.32) makes Chrome match Firefox exactly.
+  font-size: 14px;
+}
+
 body {
   background: #fff;
   color: $text-color;
