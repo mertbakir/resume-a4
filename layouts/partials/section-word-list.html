@@ -13,13 +13,14 @@
 	{{ end }}
 	</ul>
 {{- else if eq .Feature.style "compact" -}}
+{{- $lowercase := .Feature.lowercase | default false -}}
 	<div class="item">
 		<dl>
 			{{ range $data }}
 			<dt>{{ .groupName }}</dt>
 			<dd>
 				{{- range .list -}}
-				<span>{{. | lower}}</span>
+				<span>{{- if $lowercase }}{{ . | lower }}{{ else }}{{ . }}{{ end -}}</span>
 				{{- end -}}
 			</dd>
 			{{ end }}

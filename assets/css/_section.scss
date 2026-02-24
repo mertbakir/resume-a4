@@ -85,16 +85,16 @@ section.section {
   font-size: 0.9em;
 }
 
-main.paper .single-column,
-main.paper .right-column,
-main.paper aside.right-column,
-main.paper .left-column,
-.paper {
-  .section-languages {
-    .item {
-      margin-bottom: 0.4rem;
-    }
+// Languages: compact spacing applies everywhere
+.section-languages .item {
+  margin-bottom: 0.4rem;
+}
 
+// Languages: small font ONLY in the right/side column (sidebar context)
+// In single-column and left-column layouts the normal item-title size is used.
+main.paper .right-column,
+main.paper aside.right-column {
+  .section-languages {
     h2 {
       margin-bottom: 0.1rem;
       font-size: 0.9rem;
@@ -104,6 +104,45 @@ main.paper .left-column,
         font-weight: 400;
         font-size: 0.8rem;
       }
+    }
+  }
+}
+
+// ─── Compact Education widget (widget: education-compact) ─────────────────────
+// Opt-in single-line layout. Activated by `widget: education-compact` in config.yaml.
+// Zero impact when the default education widget is used.
+.section-education {
+  .edu-compact-row {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: baseline;
+    column-gap: 0.6rem;
+    padding: 0.2rem 0;
+    border-bottom: 1px solid scale-color($border-color, $lightness: 20%);
+    @include text('sm', 'normal');
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    .edu-degree {
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .edu-university {
+      @include text('xs', 'normal');
+      color: scale-color($text-color, $lightness: 30%);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .edu-date {
+      @include text('xs', 'normal');
+      color: scale-color($text-color, $lightness: 40%);
+      white-space: nowrap;
+      text-align: right;
     }
   }
 }

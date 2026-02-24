@@ -1,0 +1,27 @@
+{{/*
+  section-education-compact.html
+  Renders education entries as compact single-line rows for single-column layouts.
+  Activated by setting `widget: education-compact` on the education feature in config.yaml.
+  The default section-education.html is fully untouched.
+
+  Row layout: Degree (bold) | University · Location (muted, center) | Date · GPA (right)
+
+  Respects `education.location.show` from config (defaults to true).
+
+  Example config.yaml usage:
+    - feature: education
+      widget: education-compact
+*/}}
+{{ $showLocation := $.Params.education.location.show | default true }}
+{{ range .Data.education }}
+<div class="edu-compact-row">
+  <span class="edu-degree">{{ .name }}</span>
+  <span class="edu-university">
+    {{- .university -}}
+    {{- if and $showLocation .location -}}
+      <span class="edu-location">, {{ .location }}</span>
+    {{- end -}}
+  </span>
+  <span class="edu-date">{{ .date }}{{ if .gpa }} &middot; GPA: {{ .gpa }}{{ end }}</span>
+</div>
+{{ end }}
