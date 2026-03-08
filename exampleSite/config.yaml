@@ -50,6 +50,7 @@ params:
   # ========================================
   useFontAwesome: true          # Enable Font Awesome icons throughout the theme
   externalLinkIcon: true        # Show icons for external links
+  favicon: true                 # Show favicon
   
   # Custom CSS Files (optional)
   # css:
